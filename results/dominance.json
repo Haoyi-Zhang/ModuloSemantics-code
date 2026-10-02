@@ -1,0 +1,18 @@
+{
+  "candidate_pairs": 6144,
+  "equal_retirement_pairs": 96,
+  "hypothesis_timing": "exploratory explanation after the generated-matrix result",
+  "implication_counterexamples": 0,
+  "measurement": {
+    "cpu_seconds": 10.223115315,
+    "peak_rss_kib": 95272,
+    "wall_seconds": 10.22275730399997,
+    "workers": 1
+  },
+  "period_range": [
+    1,
+    64
+  ],
+  "programs": 96,
+  "recover_admitted_pairs": 2695
+}

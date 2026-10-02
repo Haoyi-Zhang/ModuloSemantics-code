@@ -1,0 +1,135 @@
+{
+  "recorded_pre_reproduction_runs": [
+    {
+      "experiment": "certificate_oracle",
+      "cpu_seconds": 0.5844631140000001,
+      "peak_rss_kib": 92720,
+      "wall_seconds": 0.5871106270001292,
+      "workers": 1
+    },
+    {
+      "experiment": "dominance",
+      "cpu_seconds": 10.378499934,
+      "peak_rss_kib": 94200,
+      "wall_seconds": 10.399200456000017,
+      "workers": 1
+    },
+    {
+      "experiment": "family-complementary",
+      "cpu_seconds": 1.7371320860000001,
+      "peak_rss_kib": 92592,
+      "wall_seconds": 1.7398897640000541,
+      "workers": 1
+    },
+    {
+      "experiment": "family-fault-prefix",
+      "cpu_seconds": 2.3109617090000003,
+      "peak_rss_kib": 92676,
+      "wall_seconds": 2.3132969770001637,
+      "workers": 1
+    },
+    {
+      "experiment": "family-guarded-division",
+      "cpu_seconds": 1.5785743769999998,
+      "peak_rss_kib": 92592,
+      "wall_seconds": 1.5802930190000097,
+      "workers": 1
+    },
+    {
+      "experiment": "family-identity-boundary",
+      "cpu_seconds": 0.21405836499999997,
+      "peak_rss_kib": 92592,
+      "wall_seconds": 0.21755140999994182,
+      "workers": 1
+    },
+    {
+      "experiment": "family-memory-token",
+      "cpu_seconds": 0.58149373,
+      "peak_rss_kib": 92584,
+      "wall_seconds": 0.5836015669999597,
+      "workers": 1
+    },
+    {
+      "experiment": "family-recurrence-one",
+      "cpu_seconds": 0.4030791570000001,
+      "peak_rss_kib": 92584,
+      "wall_seconds": 0.4040471509999861,
+      "workers": 1
+    },
+    {
+      "experiment": "family-recurrence-three",
+      "cpu_seconds": 3.1288959320000003,
+      "peak_rss_kib": 92584,
+      "wall_seconds": 3.1347223610000583,
+      "workers": 1
+    },
+    {
+      "experiment": "family-two-predicates",
+      "cpu_seconds": 0.05141570200000001,
+      "peak_rss_kib": 92588,
+      "wall_seconds": 0.0534100600000329,
+      "workers": 1
+    },
+    {
+      "experiment": "generated",
+      "cpu_seconds": 3.164341209,
+      "peak_rss_kib": 95528,
+      "wall_seconds": 3.1691326209997897,
+      "workers": 1
+    },
+    {
+      "experiment": "mutations",
+      "cpu_seconds": 0.01980867799999997,
+      "peak_rss_kib": 92972,
+      "wall_seconds": 0.021168898000041736,
+      "workers": 1
+    },
+    {
+      "experiment": "pilot",
+      "cpu_seconds": 1.854547581,
+      "peak_rss_kib": 94128,
+      "wall_seconds": 1.858556088000114,
+      "workers": 1
+    },
+    {
+      "experiment": "resources",
+      "cpu_seconds": 0.512292175,
+      "peak_rss_kib": 93992,
+      "wall_seconds": 0.5155725050001365,
+      "workers": 1
+    }
+  ],
+  "recorded_pre_reproduction_cpu_seconds": 26.519563749,
+  "accounting_limitation": "Some early source-inspection tests and failed experiment wrappers were not individually timed. This is not an exact cumulative CPU total for all exploratory work. Two failed bounded experiment wrappers each had a 44 CPU-second hard ceiling. No estimate is represented as a measurement. Final clean reproduction records full child CPU separately.",
+  "declared_campaign_ceiling_cpu_seconds": 28800,
+  "repair_and_reproduction_reserve_cpu_seconds": 7200,
+  "maximum_experiment_workers": 1,
+  "swap_used": false,
+  "interrupted_clean_reproduction": {
+    "completed_child_cpu_seconds": [
+      24.533781,
+      23.951122
+    ],
+    "interruption": "Enclosing tool time limit during the dominance step; no full reproduction was recorded. In-flight child CPU was not recovered.",
+    "in_flight_child_cpu_ceiling_seconds_per_attempt": 44,
+    "additional_dominance_checks": [
+      {
+        "cpu_seconds": 10.427287592,
+        "scope": "direct isolated test"
+      },
+      {
+        "child_cpu_seconds": 10.8048,
+        "scope": "isolated bounded driver test"
+      }
+    ]
+  },
+  "prior_completed_clean_reproductions": [
+    {
+      "completed_steps": 16,
+      "all_steps_passed": true,
+      "child_cpu_seconds": 43.510655,
+      "wall_seconds": 43.54400637800063,
+      "resource_reporting_scope": "RSS field in that driver did not retain the maximum across resumed processes. It is not used as a campaign maximum. Scientific counters agreed."
+    }
+  ]
+}

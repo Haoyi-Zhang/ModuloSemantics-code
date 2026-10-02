@@ -1,0 +1,12 @@
+{
+  "measurement": {
+    "cpu_seconds": 1.854547581,
+    "peak_rss_kib": 94128,
+    "wall_seconds": 1.858556088000114,
+    "workers": 1
+  },
+  "input_cases": 11773,
+  "target_comparisons": 23546,
+  "mismatches": 0,
+  "interpretation": "Measured feasibility pilot before the two documented implementation repairs. Not evidence that the current implementation was reproduced."
+}

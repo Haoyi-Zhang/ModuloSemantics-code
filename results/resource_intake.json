@@ -1,0 +1,12 @@
+{
+  "available_affinity_cores": 5,
+  "cgroup_cpu_quota_cores": 4,
+  "cgroup_memory_max_bytes": 4294967296,
+  "cgroup_memory_current_at_intake_bytes": 359460864,
+  "system_MemAvailable_kib": 5073004,
+  "swap_total_kib": 0,
+  "free_disk_bytes": 32029863936,
+  "workers": 1,
+  "campaign_cpu_seconds_limit": 28800,
+  "repair_reproduction_reserve_seconds": 7200
+}

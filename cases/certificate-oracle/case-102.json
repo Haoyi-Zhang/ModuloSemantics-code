@@ -1,0 +1,270 @@
+{
+  "checker_admitted": false,
+  "finite_equivalent": false,
+  "first_counterexample": {
+    "input": {
+      "guards": {
+        "h": [
+          true
+        ],
+        "p": [
+          false
+        ]
+      },
+      "initial": {
+        "a": {
+          "-1": 0,
+          "-10": 0,
+          "-11": 0,
+          "-12": 0,
+          "-13": 0,
+          "-14": 0,
+          "-15": 0,
+          "-16": 0,
+          "-17": 0,
+          "-18": 0,
+          "-19": 0,
+          "-2": 0,
+          "-20": 0,
+          "-21": 0,
+          "-22": 0,
+          "-23": 0,
+          "-24": 0,
+          "-25": 0,
+          "-26": 0,
+          "-27": 0,
+          "-28": 0,
+          "-29": 0,
+          "-3": 0,
+          "-30": 0,
+          "-31": 0,
+          "-32": 0,
+          "-33": 0,
+          "-34": 0,
+          "-35": 0,
+          "-36": 0,
+          "-37": 0,
+          "-38": 0,
+          "-39": 0,
+          "-4": 0,
+          "-40": 0,
+          "-41": 0,
+          "-42": 0,
+          "-43": 0,
+          "-44": 0,
+          "-45": 0,
+          "-46": 0,
+          "-47": 0,
+          "-48": 0,
+          "-49": 0,
+          "-5": 0,
+          "-50": 0,
+          "-51": 0,
+          "-52": 0,
+          "-53": 0,
+          "-54": 0,
+          "-55": 0,
+          "-56": 0,
+          "-57": 0,
+          "-58": 0,
+          "-59": 0,
+          "-6": 0,
+          "-60": 0,
+          "-61": 0,
+          "-62": 0,
+          "-63": 0,
+          "-64": 0,
+          "-7": 0,
+          "-8": 0,
+          "-9": 0
+        }
+      },
+      "inputs": {
+        "x": [
+          -1
+        ],
+        "y": [
+          -1
+        ],
+        "z": [
+          -1
+        ]
+      },
+      "n": 1
+    },
+    "source": {
+      "state": {
+        "a": -1
+      },
+      "status": "done",
+      "trace": []
+    },
+    "target": {
+      "detail": "(0, 'copy')",
+      "state": {},
+      "status": "stuck",
+      "trace": []
+    }
+  },
+  "program": {
+    "actual": [
+      "p"
+    ],
+    "attempts": [
+      {
+        "args": [
+          {
+            "input": "x"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "op",
+        "name": "op",
+        "node": "a",
+        "offset": 0,
+        "when": "p"
+      },
+      {
+        "args": [
+          {
+            "input": "z"
+          }
+        ],
+        "kind": "copy",
+        "name": "copy",
+        "node": "a",
+        "offset": 0,
+        "when": [
+          "not",
+          "h"
+        ]
+      }
+    ],
+    "costs": {
+      "add": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "copy": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "div": {
+        "latency": 3,
+        "reserve": [
+          0
+        ],
+        "resource": "div"
+      },
+      "id": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "load": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "mul": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "mux": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "store": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "sub": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      }
+    },
+    "guard_ready": {
+      "h": 0,
+      "p": 0
+    },
+    "ii": 1,
+    "input_ready": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "inputs": [
+      "x",
+      "y",
+      "z"
+    ],
+    "nodes": [
+      {
+        "args": [
+          {
+            "input": "x"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "emit": true,
+        "fallback": {
+          "input": "z"
+        },
+        "guard": "p",
+        "name": "a",
+        "op": "div"
+      }
+    ],
+    "predicted": [
+      "h"
+    ],
+    "resources": {
+      "alu": 2,
+      "div": 2,
+      "mem": 2,
+      "move": 4
+    },
+    "retire": 3,
+    "retirement": {
+      "a": [
+        {
+          "attempt": "op",
+          "when": false
+        },
+        {
+          "attempt": "copy",
+          "when": [
+            "not",
+            false
+          ]
+        }
+      ]
+    }
+  }
+}

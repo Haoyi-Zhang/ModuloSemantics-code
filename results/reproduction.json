@@ -1,0 +1,140 @@
+{
+  "all_steps_passed": true,
+  "child_cpu_seconds": 42.278734,
+  "child_peak_rss_kib_so_far": 95652,
+  "completed_steps": [
+    {
+      "child_cpu_seconds": 1.043518,
+      "returncode": 0,
+      "step": "tests",
+      "timed_out": false,
+      "wall_seconds": 1.044204205000824
+    },
+    {
+      "child_cpu_seconds": 2.6600010000000003,
+      "returncode": 0,
+      "step": "pilot",
+      "timed_out": false,
+      "wall_seconds": 2.6610209000000395
+    },
+    {
+      "child_cpu_seconds": 2.4929509999999993,
+      "returncode": 0,
+      "step": "guarded-division",
+      "timed_out": false,
+      "wall_seconds": 2.4936668580003243
+    },
+    {
+      "child_cpu_seconds": 3.512485,
+      "returncode": 0,
+      "step": "fault-prefix",
+      "timed_out": false,
+      "wall_seconds": 3.5132546129998445
+    },
+    {
+      "child_cpu_seconds": 1.5569930000000003,
+      "returncode": 0,
+      "step": "memory-token",
+      "timed_out": false,
+      "wall_seconds": 1.5579564659992684
+    },
+    {
+      "child_cpu_seconds": 1.427865,
+      "returncode": 0,
+      "step": "recurrence-one",
+      "timed_out": false,
+      "wall_seconds": 1.4298500860004424
+    },
+    {
+      "child_cpu_seconds": 4.188262,
+      "returncode": 0,
+      "step": "recurrence-three",
+      "timed_out": false,
+      "wall_seconds": 4.191254043000299
+    },
+    {
+      "child_cpu_seconds": 2.7418580000000006,
+      "returncode": 0,
+      "step": "complementary",
+      "timed_out": false,
+      "wall_seconds": 2.7442667830000573
+    },
+    {
+      "child_cpu_seconds": 1.0482680000000002,
+      "returncode": 0,
+      "step": "two-predicates",
+      "timed_out": false,
+      "wall_seconds": 1.0505147130006662
+    },
+    {
+      "child_cpu_seconds": 1.1787480000000006,
+      "returncode": 0,
+      "step": "identity-boundary",
+      "timed_out": false,
+      "wall_seconds": 1.1797175349993267
+    },
+    {
+      "child_cpu_seconds": 1.0175509999999999,
+      "returncode": 0,
+      "step": "mutations",
+      "timed_out": false,
+      "wall_seconds": 1.018863952999709
+    },
+    {
+      "child_cpu_seconds": 1.4301800000000002,
+      "returncode": 0,
+      "step": "resources",
+      "timed_out": false,
+      "wall_seconds": 1.4307757879996643
+    },
+    {
+      "child_cpu_seconds": 4.054855999999999,
+      "returncode": 0,
+      "step": "generated",
+      "timed_out": false,
+      "wall_seconds": 4.056991556999492
+    },
+    {
+      "child_cpu_seconds": 1.5297350000000005,
+      "returncode": 0,
+      "step": "certificate-oracle",
+      "timed_out": false,
+      "wall_seconds": 1.532471584000632
+    },
+    {
+      "child_cpu_seconds": 11.229095,
+      "returncode": 0,
+      "step": "dominance",
+      "timed_out": false,
+      "wall_seconds": 11.233432804000586
+    },
+    {
+      "child_cpu_seconds": 1.1663679999999998,
+      "returncode": 0,
+      "step": "reconcile",
+      "timed_out": false,
+      "wall_seconds": 1.1689431899994815
+    }
+  ],
+  "maximum_concurrent_children": 1,
+  "requested_steps": [
+    "tests",
+    "pilot",
+    "guarded-division",
+    "fault-prefix",
+    "memory-token",
+    "recurrence-one",
+    "recurrence-three",
+    "complementary",
+    "two-predicates",
+    "identity-boundary",
+    "mutations",
+    "resources",
+    "generated",
+    "certificate-oracle",
+    "dominance",
+    "reconcile"
+  ],
+  "selected_batch_passed": true,
+  "wall_seconds": 42.315030821999244
+}

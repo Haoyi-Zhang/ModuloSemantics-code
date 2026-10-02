@@ -1,0 +1,135 @@
+{
+  "accepted_comparisons": 135200,
+  "accepted_mismatches": 0,
+  "certificate_oracle": {
+    "admitted": 4,
+    "false_admissions": 0,
+    "false_rejections_within_this_grammar": 0,
+    "grammar_certificates": 216,
+    "inputs_per_certificate": 108,
+    "predicate_order": [
+      false,
+      true,
+      "p",
+      [
+        "not",
+        "p"
+      ],
+      "h",
+      [
+        "not",
+        "h"
+      ]
+    ],
+    "raw_rows": "results/certificate_oracle_rows.csv",
+    "target_comparisons": 23328,
+    "trip_count": 1
+  },
+  "families": [
+    {
+      "cases": 11773,
+      "family": "complementary",
+      "recover_attempts": 12,
+      "recover_ii": 2,
+      "recover_retire": 6,
+      "target_comparisons": 23546,
+      "wait_attempts": 6,
+      "wait_ii": 1,
+      "wait_retire": 6
+    },
+    {
+      "cases": 11773,
+      "family": "fault-prefix",
+      "recover_attempts": 18,
+      "recover_ii": 2,
+      "recover_retire": 7,
+      "target_comparisons": 23546,
+      "wait_attempts": 9,
+      "wait_ii": 1,
+      "wait_retire": 7
+    },
+    {
+      "cases": 11773,
+      "family": "guarded-division",
+      "recover_attempts": 12,
+      "recover_ii": 2,
+      "recover_retire": 9,
+      "target_comparisons": 23546,
+      "wait_attempts": 6,
+      "wait_ii": 1,
+      "wait_retire": 9
+    },
+    {
+      "cases": 1885,
+      "family": "identity-boundary",
+      "recover_attempts": 6,
+      "recover_ii": 1,
+      "recover_retire": 5,
+      "target_comparisons": 3770,
+      "wait_attempts": 3,
+      "wait_ii": 1,
+      "wait_retire": 5
+    },
+    {
+      "cases": 4161,
+      "family": "memory-token",
+      "recover_attempts": 12,
+      "recover_ii": 2,
+      "recover_retire": 9,
+      "target_comparisons": 8322,
+      "wait_attempts": 6,
+      "wait_ii": 1,
+      "wait_retire": 9
+    },
+    {
+      "cases": 1885,
+      "family": "recurrence-one",
+      "recover_attempts": 12,
+      "recover_ii": 7,
+      "recover_retire": 7,
+      "target_comparisons": 3770,
+      "wait_attempts": 6,
+      "wait_ii": 4,
+      "wait_retire": 7
+    },
+    {
+      "cases": 22621,
+      "family": "recurrence-three",
+      "recover_attempts": 6,
+      "recover_ii": 2,
+      "recover_retire": 5,
+      "target_comparisons": 45242,
+      "wait_attempts": 3,
+      "wait_ii": 1,
+      "wait_retire": 5
+    },
+    {
+      "cases": 433,
+      "family": "two-predicates",
+      "recover_attempts": 12,
+      "recover_ii": 2,
+      "recover_retire": 9,
+      "target_comparisons": 866,
+      "wait_attempts": 6,
+      "wait_ii": 1,
+      "wait_retire": 9
+    }
+  ],
+  "family_inputs": 66304,
+  "family_target_comparisons": 132608,
+  "generated_inputs": 2304,
+  "generated_paired_programs": 46,
+  "generated_programs": 96,
+  "generated_recover_admitted": 46,
+  "generated_recover_ii_better": 0,
+  "generated_recover_ii_equal": 3,
+  "generated_recover_ii_worse": 43,
+  "generated_retire_equal": 46,
+  "generated_target_comparisons": 2592,
+  "generated_wait_admitted": 62,
+  "resource_assignments": 90720,
+  "resource_cells": 2376,
+  "resource_instances": 1728,
+  "resource_naive_underestimates": 72,
+  "resource_unconditional_overestimates": 594
+}

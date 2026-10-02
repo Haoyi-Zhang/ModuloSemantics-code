@@ -1,0 +1,631 @@
+{
+  "actual": [
+    "p"
+  ],
+  "attempts": [
+    {
+      "args": [
+        {
+          "input": "heap"
+        },
+        {
+          "input": "k"
+        },
+        {
+          "input": "x"
+        }
+      ],
+      "kind": "op",
+      "name": "f_m_op",
+      "node": "m",
+      "offset": 0,
+      "when": [
+        "and",
+        true,
+        "h"
+      ]
+    },
+    {
+      "args": [
+        {
+          "input": "heap"
+        }
+      ],
+      "kind": "copy",
+      "name": "f_m_copy",
+      "node": "m",
+      "offset": 0,
+      "when": [
+        "and",
+        true,
+        [
+          "not",
+          "h"
+        ]
+      ]
+    },
+    {
+      "choices": [
+        {
+          "attempt": "f_m_op",
+          "when": "h"
+        },
+        {
+          "attempt": "f_m_copy",
+          "when": [
+            "not",
+            "h"
+          ]
+        }
+      ],
+      "kind": "mux",
+      "name": "f_m_join",
+      "node": "m",
+      "offset": 2,
+      "when": true
+    },
+    {
+      "args": [
+        {
+          "attempt": "f_m_join"
+        },
+        {
+          "input": "k"
+        }
+      ],
+      "kind": "op",
+      "name": "f_r_op",
+      "node": "r",
+      "offset": 3,
+      "when": [
+        "and",
+        true,
+        true
+      ]
+    },
+    {
+      "args": [
+        {
+          "constant": 0
+        }
+      ],
+      "kind": "copy",
+      "name": "f_r_copy",
+      "node": "r",
+      "offset": 0,
+      "when": [
+        "and",
+        true,
+        [
+          "not",
+          true
+        ]
+      ]
+    },
+    {
+      "choices": [
+        {
+          "attempt": "f_r_op",
+          "when": true
+        },
+        {
+          "attempt": "f_r_copy",
+          "when": [
+            "not",
+            true
+          ]
+        }
+      ],
+      "kind": "mux",
+      "name": "f_r_join",
+      "node": "r",
+      "offset": 5,
+      "when": true
+    },
+    {
+      "args": [
+        {
+          "input": "heap"
+        },
+        {
+          "input": "k"
+        },
+        {
+          "input": "x"
+        }
+      ],
+      "kind": "op",
+      "name": "r_m_op",
+      "node": "m",
+      "offset": 3,
+      "when": [
+        "and",
+        [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ],
+        "p"
+      ]
+    },
+    {
+      "args": [
+        {
+          "input": "heap"
+        }
+      ],
+      "kind": "copy",
+      "name": "r_m_copy",
+      "node": "m",
+      "offset": 3,
+      "when": [
+        "and",
+        [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "not",
+          "p"
+        ]
+      ]
+    },
+    {
+      "choices": [
+        {
+          "attempt": "r_m_op",
+          "when": "p"
+        },
+        {
+          "attempt": "r_m_copy",
+          "when": [
+            "not",
+            "p"
+          ]
+        }
+      ],
+      "kind": "mux",
+      "name": "r_m_join",
+      "node": "m",
+      "offset": 5,
+      "when": [
+        "not",
+        [
+          "and",
+          [
+            "or",
+            [
+              "and",
+              "p",
+              "h"
+            ],
+            [
+              "and",
+              [
+                "not",
+                "p"
+              ],
+              [
+                "not",
+                "h"
+              ]
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "args": [
+        {
+          "attempt": "r_m_join"
+        },
+        {
+          "input": "k"
+        }
+      ],
+      "kind": "op",
+      "name": "r_r_op",
+      "node": "r",
+      "offset": 6,
+      "when": [
+        "and",
+        [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ],
+        true
+      ]
+    },
+    {
+      "args": [
+        {
+          "constant": 0
+        }
+      ],
+      "kind": "copy",
+      "name": "r_r_copy",
+      "node": "r",
+      "offset": 3,
+      "when": [
+        "and",
+        [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "not",
+          true
+        ]
+      ]
+    },
+    {
+      "choices": [
+        {
+          "attempt": "r_r_op",
+          "when": true
+        },
+        {
+          "attempt": "r_r_copy",
+          "when": [
+            "not",
+            true
+          ]
+        }
+      ],
+      "kind": "mux",
+      "name": "r_r_join",
+      "node": "r",
+      "offset": 8,
+      "when": [
+        "not",
+        [
+          "and",
+          [
+            "or",
+            [
+              "and",
+              "p",
+              "h"
+            ],
+            [
+              "and",
+              [
+                "not",
+                "p"
+              ],
+              [
+                "not",
+                "h"
+              ]
+            ]
+          ]
+        ]
+      ]
+    }
+  ],
+  "costs": {
+    "add": {
+      "latency": 1,
+      "reserve": [
+        0
+      ],
+      "resource": "alu"
+    },
+    "copy": {
+      "latency": 1,
+      "reserve": [
+        0
+      ],
+      "resource": "move"
+    },
+    "div": {
+      "latency": 3,
+      "reserve": [
+        0
+      ],
+      "resource": "div"
+    },
+    "id": {
+      "latency": 1,
+      "reserve": [
+        0
+      ],
+      "resource": "alu"
+    },
+    "load": {
+      "latency": 2,
+      "reserve": [
+        0
+      ],
+      "resource": "mem"
+    },
+    "mul": {
+      "latency": 2,
+      "reserve": [
+        0
+      ],
+      "resource": "alu"
+    },
+    "mux": {
+      "latency": 1,
+      "reserve": [
+        0
+      ],
+      "resource": "move"
+    },
+    "store": {
+      "latency": 2,
+      "reserve": [
+        0
+      ],
+      "resource": "mem"
+    },
+    "sub": {
+      "latency": 1,
+      "reserve": [
+        0
+      ],
+      "resource": "alu"
+    }
+  },
+  "guard_ready": {
+    "h": 0,
+    "p": 3
+  },
+  "ii": 2,
+  "input_ready": {
+    "heap": 0,
+    "k": 0,
+    "x": 0
+  },
+  "inputs": [
+    "heap",
+    "k",
+    "x"
+  ],
+  "nodes": [
+    {
+      "args": [
+        {
+          "input": "heap"
+        },
+        {
+          "input": "k"
+        },
+        {
+          "input": "x"
+        }
+      ],
+      "emit": false,
+      "fallback": {
+        "input": "heap"
+      },
+      "guard": "p",
+      "name": "m",
+      "op": "store"
+    },
+    {
+      "args": [
+        {
+          "distance": 0,
+          "node": "m"
+        },
+        {
+          "input": "k"
+        }
+      ],
+      "emit": true,
+      "fallback": {
+        "constant": 0
+      },
+      "guard": true,
+      "name": "r",
+      "op": "load"
+    }
+  ],
+  "predicted": [
+    "h"
+  ],
+  "resources": {
+    "alu": 2,
+    "div": 2,
+    "mem": 2,
+    "move": 4
+  },
+  "retire": 9,
+  "retirement": {
+    "m": [
+      {
+        "attempt": "f_m_join",
+        "when": [
+          "and",
+          [
+            "or",
+            [
+              "and",
+              "p",
+              "h"
+            ],
+            [
+              "and",
+              [
+                "not",
+                "p"
+              ],
+              [
+                "not",
+                "h"
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "attempt": "r_m_join",
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ],
+    "r": [
+      {
+        "attempt": "f_r_join",
+        "when": [
+          "and",
+          [
+            "or",
+            [
+              "and",
+              "p",
+              "h"
+            ],
+            [
+              "and",
+              [
+                "not",
+                "p"
+              ],
+              [
+                "not",
+                "h"
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "attempt": "r_r_join",
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ]
+  }
+}

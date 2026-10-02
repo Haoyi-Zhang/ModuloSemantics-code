@@ -1,0 +1,222 @@
+{
+  "baseline_isolated_confirmation": {
+    "guard-ready-array": {
+      "api_exit": 1,
+      "api_unhandled_attribute_error": true,
+      "cli_exit": 1,
+      "cli_unhandled_attribute_error": true
+    },
+    "guard-ready-null": {
+      "api_exit": 0,
+      "api_unhandled_attribute_error": false,
+      "cli_exit": 2,
+      "cli_unhandled_attribute_error": false
+    },
+    "guard-ready-string": {
+      "api_exit": 1,
+      "api_unhandled_attribute_error": true,
+      "cli_exit": 1,
+      "cli_unhandled_attribute_error": true
+    },
+    "input-ready-array": {
+      "api_exit": 1,
+      "api_unhandled_attribute_error": true,
+      "cli_exit": 1,
+      "cli_unhandled_attribute_error": true
+    },
+    "input-ready-null": {
+      "api_exit": 0,
+      "api_unhandled_attribute_error": false,
+      "cli_exit": 2,
+      "cli_unhandled_attribute_error": false
+    },
+    "input-ready-string": {
+      "api_exit": 1,
+      "api_unhandled_attribute_error": true,
+      "cli_exit": 1,
+      "cli_unhandled_attribute_error": true
+    }
+  },
+  "figures": {
+    "shifted-reservations.tex": {
+      "sha256": "eb52dd7efdafa3b267acba9e45140d95a4d5c1ef950d3123dc102ec1aec0e2a2",
+      "unchanged_from_input_archive": true
+    },
+    "ticket-retirement.tex": {
+      "sha256": "6d4387df0c4b7a995e10ddd15e4930ab4bb5287347b9164f023d0ebc1864750a",
+      "unchanged_from_input_archive": true
+    }
+  },
+  "finding": "F1 availability maps were used as mappings before their type was validated",
+  "normal_guarded_division": {
+    "api_accepted": true,
+    "api_issue_count": 0,
+    "api_process_exit": 0,
+    "api_stderr_bytes": 0,
+    "cli_accepted": true,
+    "cli_exit": 0,
+    "cli_json_parseable": true,
+    "cli_stderr_bytes": 0
+  },
+  "not_rerun_or_recertified": [
+    "pilot",
+    "eight semantic families",
+    "mutations",
+    "resource enumeration",
+    "generated matrix",
+    "certificate oracle",
+    "dominance experiment",
+    "full 16-stage reproduction sequence"
+  ],
+  "post_repair_direct_probes": {
+    "guard-ready-array": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "guard_ready must be an object",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "guard_ready must be an object",
+      "cli_stderr_bytes": 0
+    },
+    "guard-ready-missing": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "guard_ready keys must exactly match declarations",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "guard_ready keys must exactly match declarations",
+      "cli_stderr_bytes": 0
+    },
+    "guard-ready-null": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "guard_ready must be an object",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "guard_ready must be an object",
+      "cli_stderr_bytes": 0
+    },
+    "guard-ready-string": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "guard_ready must be an object",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "guard_ready must be an object",
+      "cli_stderr_bytes": 0
+    },
+    "input-ready-array": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "input_ready must be an object",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "input_ready must be an object",
+      "cli_stderr_bytes": 0
+    },
+    "input-ready-bool-release": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "input_ready[y] release time must be an integer in [0, 4096]",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "input_ready[y] release time must be an integer in [0, 4096]",
+      "cli_stderr_bytes": 0
+    },
+    "input-ready-null": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "input_ready must be an object",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "input_ready must be an object",
+      "cli_stderr_bytes": 0
+    },
+    "input-ready-string": {
+      "api_accepted": false,
+      "api_issue_code": "format",
+      "api_message": "input_ready must be an object",
+      "api_process_exit": 0,
+      "api_stderr_bytes": 0,
+      "cli_accepted": false,
+      "cli_exit": 2,
+      "cli_issue_code": "format",
+      "cli_json_parseable": true,
+      "cli_message": "input_ready must be an object",
+      "cli_stderr_bytes": 0
+    }
+  },
+  "repair": {
+    "broad_exception_added": false,
+    "checker_change": "validate guard_ready and input_ready as JSON objects before any mapping operation; require exact declared keys; require release values to be non-Boolean integers in [0, 4096]",
+    "cli_exception_policy_changed": false
+  },
+  "retained_result_reconciliation": {
+    "command": "python verify_results.py",
+    "exit": 0,
+    "output": {
+      "accepted_comparisons": 135200,
+      "finite_checks_are_not_a_general_mechanized_proof": true,
+      "scientific_counts_reconciled": true
+    },
+    "scope": "Checks retained result counts and current checker admission on stored cases; does not regenerate experiments or constitute comprehensive certification"
+  },
+  "retained_scientific_result_files": {
+    "reproduction_json_sha256": "fd3d785118aad7f2f90cd87e8d37be98c0d34ad130775593b7857e66119e2453",
+    "reproduction_json_unchanged": true
+  },
+  "scope": "targeted checker/API/CLI format-boundary repair only",
+  "severity": "P2 static robustness risk; not a counterexample to the preservation theorem",
+  "tests": {
+    "cli_module_sha256": "a59bb80e55bf1daad94940f17c7f5ea3e0e49d4e134706b398c213c8f6cf659c",
+    "cli_module_unchanged": true,
+    "full_discovery": {
+      "passed": true,
+      "reported_seconds": 4.935,
+      "tests": 21
+    },
+    "new_format_suite": {
+      "passed": true,
+      "reported_seconds": 4.849,
+      "tests": 3
+    },
+    "original_semantics_suite": {
+      "passed": true,
+      "reported_seconds": 0.029,
+      "tests": 18
+    },
+    "original_test_file_sha256": "bbc92fc4847c5cc0cacf1c355afd287919af2b54f59174e4193d89cfd6cd6c5f",
+    "original_test_file_unchanged": true,
+    "python_compile": {
+      "exit": 0
+    }
+  }
+}
