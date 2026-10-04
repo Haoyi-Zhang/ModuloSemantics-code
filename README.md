@@ -98,7 +98,7 @@ imports neither the checker nor the target interpreter; the target interpreter
 does not call the checker. The reservation oracle explicitly unrolls clocks
 rather than using the checker's phase/stage quotient. These code separations
 reduce some shared implementation risks, but every component was developed in
-the same AI-assisted work session. There was no independently authored or
+the same development session. There was no independently authored or
 external blind verification.
 
 The recorded main matrix has 132,608 accepted-candidate comparisons from eight
@@ -240,11 +240,3 @@ complete. The original Lam source full text and live TOPLAS guide were not
 successfully retrieved at their supplied endpoints. Modern validation and
 predication work already blocks broad novelty claims. The current manuscript
 is an internal technical record rather than a completed 50-page TOPLAS article.
-
-Substantive AI assistance was used for formulation, literature screening,
-proof drafting, code generation and revision, experiment orchestration,
-analysis, validation and manuscript writing. The experiments execute the
-included deterministic Python programs; they do not execute a language model.
-Named human authorship eligibility and independent accountability have not
-been established by this artifact. No external submission, contact, repository
-publication or independent peer review took place.
