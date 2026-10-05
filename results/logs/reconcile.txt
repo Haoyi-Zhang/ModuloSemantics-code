@@ -1,0 +1,5 @@
+{
+  "scientific_counts_reconciled": true,
+  "accepted_comparisons": 135200,
+  "finite_checks_are_not_a_general_mechanized_proof": true
+}

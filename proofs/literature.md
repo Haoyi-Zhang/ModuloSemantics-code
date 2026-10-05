@@ -1,7 +1,15 @@
+# Baseline comparison scope
+
+This note records the inherited retirement-only comparison. The current
+38-reference inventory and access scopes are in ../literature/reference-audit.json;
+the research manuscript compares the new export/annotation theorem separately.
+
 # Literature evidence and unresolved boundary
 
-This note records narrow source support, not a systematic review or a completed
-venue calibration. Public access does not grant redistribution permission.
+This note retains the retirement-only technical locators from the supplied
+record; those locators were not all reacquired in the current run. Current
+per-source access levels are in the bibliography ledger. Neither is a systematic
+review or a completed venue calibration. Public access does not grant redistribution permission.
 No external paper or implementation is needed to reproduce the finite tests.
 The URLs and access statuses are recorded in `../external_resources.csv`.
 
@@ -42,8 +50,9 @@ placeholders. It is not counted as a verified final journal article. No award
 or influence class has been assigned without evidence.
 
 The required twelve same-venue, five influential and five adjacent full-paper
-calibration remains incomplete. Five manuscript references are not a calibrated
-bibliography, and unavailable papers or abstracts are not counted as read.
+calibration remains incomplete. The initial five-source set was not a calibrated bibliography; the current
+38-source inventory is also not a claim that the whole-paper calibration was
+completed. Unavailable papers or abstracts are not counted as read.
 The exact next scientific action is to complete the strongest full-text
 comparison before asserting a new formulation; the retained proofs and finite
 evidence should be preserved while doing so.

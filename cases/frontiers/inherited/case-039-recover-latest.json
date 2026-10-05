@@ -1,0 +1,1607 @@
+{
+  "program": {
+    "actual": [
+      "p",
+      "q"
+    ],
+    "attempts": [
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "op",
+        "name": "f_v0_op",
+        "node": "v0",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          false
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "copy",
+        "name": "f_v0_copy",
+        "node": "v0",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            false
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "f_v0_op",
+            "when": false
+          },
+          {
+            "attempt": "f_v0_copy",
+            "when": [
+              "not",
+              false
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "f_v0_join",
+        "node": "v0",
+        "offset": 1,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "attempt": "f_v0_join"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "op",
+        "name": "f_v1_op",
+        "node": "v1",
+        "offset": 2,
+        "when": [
+          "and",
+          true,
+          false
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "copy",
+        "name": "f_v1_copy",
+        "node": "v1",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            false
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "f_v1_op",
+            "when": false
+          },
+          {
+            "attempt": "f_v1_copy",
+            "when": [
+              "not",
+              false
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "f_v1_join",
+        "node": "v1",
+        "offset": 3,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "op",
+        "name": "f_v2_op",
+        "node": "v2",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          true
+        ]
+      },
+      {
+        "args": [
+          {
+            "constant": -1
+          }
+        ],
+        "kind": "copy",
+        "name": "f_v2_copy",
+        "node": "v2",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            true
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "f_v2_op",
+            "when": true
+          },
+          {
+            "attempt": "f_v2_copy",
+            "when": [
+              "not",
+              true
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "f_v2_join",
+        "node": "v2",
+        "offset": 2,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "attempt": "f_v1_join"
+          },
+          {
+            "constant": -1
+          }
+        ],
+        "kind": "op",
+        "name": "f_v3_op",
+        "node": "v3",
+        "offset": 4,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            "h"
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "attempt": "f_v0_join"
+          }
+        ],
+        "kind": "copy",
+        "name": "f_v3_copy",
+        "node": "v3",
+        "offset": 2,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            [
+              "not",
+              "h"
+            ]
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "f_v3_op",
+            "when": [
+              "not",
+              "h"
+            ]
+          },
+          {
+            "attempt": "f_v3_copy",
+            "when": [
+              "not",
+              [
+                "not",
+                "h"
+              ]
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "f_v3_join",
+        "node": "v3",
+        "offset": 5,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "op",
+        "name": "r_v0_op",
+        "node": "v0",
+        "offset": 0,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          false
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "copy",
+        "name": "r_v0_copy",
+        "node": "v0",
+        "offset": 0,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "not",
+            false
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "r_v0_op",
+            "when": false
+          },
+          {
+            "attempt": "r_v0_copy",
+            "when": [
+              "not",
+              false
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "r_v0_join",
+        "node": "v0",
+        "offset": 1,
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "attempt": "r_v0_join"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "op",
+        "name": "r_v1_op",
+        "node": "v1",
+        "offset": 2,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          false
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "copy",
+        "name": "r_v1_copy",
+        "node": "v1",
+        "offset": 0,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "not",
+            false
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "r_v1_op",
+            "when": false
+          },
+          {
+            "attempt": "r_v1_copy",
+            "when": [
+              "not",
+              false
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "r_v1_join",
+        "node": "v1",
+        "offset": 3,
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "op",
+        "name": "r_v2_op",
+        "node": "v2",
+        "offset": 0,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          true
+        ]
+      },
+      {
+        "args": [
+          {
+            "constant": -1
+          }
+        ],
+        "kind": "copy",
+        "name": "r_v2_copy",
+        "node": "v2",
+        "offset": 0,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "not",
+            true
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "r_v2_op",
+            "when": true
+          },
+          {
+            "attempt": "r_v2_copy",
+            "when": [
+              "not",
+              true
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "r_v2_join",
+        "node": "v2",
+        "offset": 2,
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "attempt": "r_v1_join"
+          },
+          {
+            "constant": -1
+          }
+        ],
+        "kind": "op",
+        "name": "r_v3_op",
+        "node": "v3",
+        "offset": 4,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "not",
+            "p"
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "attempt": "r_v0_join"
+          }
+        ],
+        "kind": "copy",
+        "name": "r_v3_copy",
+        "node": "v3",
+        "offset": 2,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "not",
+            [
+              "not",
+              "p"
+            ]
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "r_v3_op",
+            "when": [
+              "not",
+              "p"
+            ]
+          },
+          {
+            "attempt": "r_v3_copy",
+            "when": [
+              "not",
+              [
+                "not",
+                "p"
+              ]
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "r_v3_join",
+        "node": "v3",
+        "offset": 5,
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ],
+    "costs": {
+      "add": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "copy": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "div": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "div"
+      },
+      "id": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "load": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "mul": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "mux": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "store": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "sub": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      }
+    },
+    "exports": {},
+    "guard_ready": {
+      "h": 0,
+      "j": 0,
+      "p": 0,
+      "q": 0
+    },
+    "ii": 6,
+    "input_ready": {
+      "x": 0,
+      "y": 0
+    },
+    "inputs": [
+      "x",
+      "y"
+    ],
+    "nodes": [
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "emit": false,
+        "fallback": {
+          "input": "x"
+        },
+        "guard": false,
+        "name": "v0",
+        "op": "sub"
+      },
+      {
+        "args": [
+          {
+            "distance": 0,
+            "node": "v0"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "emit": false,
+        "fallback": {
+          "input": "x"
+        },
+        "guard": false,
+        "name": "v1",
+        "op": "add"
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "emit": false,
+        "fallback": {
+          "constant": -1
+        },
+        "guard": true,
+        "name": "v2",
+        "op": "mul"
+      },
+      {
+        "args": [
+          {
+            "distance": 0,
+            "node": "v1"
+          },
+          {
+            "constant": -1
+          }
+        ],
+        "emit": true,
+        "fallback": {
+          "distance": 0,
+          "node": "v0"
+        },
+        "guard": [
+          "not",
+          "p"
+        ],
+        "name": "v3",
+        "op": "add"
+      }
+    ],
+    "predicted": [
+      "h",
+      "j"
+    ],
+    "resources": {
+      "alu": 2,
+      "div": 2,
+      "mem": 2,
+      "move": 4
+    },
+    "retire": 6,
+    "retirement": {
+      "v0": [
+        {
+          "attempt": "f_v0_join",
+          "when": [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "attempt": "r_v0_join",
+          "when": [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "v1": [
+        {
+          "attempt": "f_v1_join",
+          "when": [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "attempt": "r_v1_join",
+          "when": [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "v2": [
+        {
+          "attempt": "f_v2_join",
+          "when": [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "attempt": "r_v2_join",
+          "when": [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "v3": [
+        {
+          "attempt": "f_v3_join",
+          "when": [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ],
+            [
+              "or",
+              [
+                "and",
+                "q",
+                "j"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "q"
+                ],
+                [
+                  "not",
+                  "j"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "attempt": "r_v3_join",
+          "when": [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ],
+              [
+                "or",
+                [
+                  "and",
+                  "q",
+                  "j"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "q"
+                  ],
+                  [
+                    "not",
+                    "j"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "source_case": "cases/generated/case-039.json",
+  "synthesis": {
+    "bank_layout": {},
+    "earliest": {},
+    "minimality": {},
+    "policy": "latest",
+    "selected": {},
+    "timing_lower_bound": 1,
+    "tried": [
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 1
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 2
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 3
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 4
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 5
+      },
+      {
+        "accepted": true,
+        "codes": [],
+        "ii": 6
+      }
+    ]
+  }
+}

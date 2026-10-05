@@ -1,0 +1,313 @@
+{
+  "scope": "Actual clean-extraction execution and deterministic content comparison; not external peer review, machine verification, or a journal readiness certificate.",
+  "scientific_json_equal": [
+    "certificate_oracle.json",
+    "dominance.json",
+    "family-complementary.json",
+    "family-fault-prefix.json",
+    "family-guarded-division.json",
+    "family-identity-boundary.json",
+    "family-memory-token.json",
+    "family-recurrence-one.json",
+    "family-recurrence-three.json",
+    "family-two-predicates.json",
+    "frontier-boundary.json",
+    "frontier-controls.json",
+    "frontier-cross-feedback.json",
+    "frontier-designs.json",
+    "frontier-functional-feedback.json",
+    "frontier-guarded-feedback.json",
+    "frontier-hybrid-designs.json",
+    "frontier-hybrid-oracle.json",
+    "frontier-inherited-0.json",
+    "frontier-inherited-1.json",
+    "frontier-inherited-2.json",
+    "frontier-inherited-3.json",
+    "frontier-inherited-4.json",
+    "frontier-inherited-5.json",
+    "frontier-inherited-6.json",
+    "frontier-inherited-7.json",
+    "frontier-inherited.json",
+    "frontier-quality.json",
+    "frontier-recurrence-tail.json",
+    "frontier-scaling.json",
+    "frontier-selectors.json",
+    "frontier-startup.json",
+    "frontier-storage.json",
+    "frontier-summary.json",
+    "generated.json",
+    "mutations.json",
+    "pilot.json",
+    "replay-small-oracle.json",
+    "replay-structured.json",
+    "replay-summary.json",
+    "replay-three-tickets.json",
+    "reproduction.json",
+    "resources.json",
+    "summary.json"
+  ],
+  "csv_equal_except_declared_measurements": [
+    {
+      "file": "certificate_oracle_rows.csv",
+      "rows": 216
+    },
+    {
+      "file": "frontier_design_rows.csv",
+      "rows": 300
+    },
+    {
+      "file": "frontier_hybrid_design_rows.csv",
+      "rows": 144
+    },
+    {
+      "file": "frontier_hybrid_oracle_rows.csv",
+      "rows": 32
+    },
+    {
+      "file": "frontier_inherited_0_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_1_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_2_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_3_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_4_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_5_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_6_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_7_rows.csv",
+      "rows": 48
+    },
+    {
+      "file": "frontier_inherited_rows.csv",
+      "rows": 384
+    },
+    {
+      "file": "frontier_quality_rows.csv",
+      "rows": 360
+    },
+    {
+      "file": "frontier_scaling_rows.csv",
+      "rows": 18
+    },
+    {
+      "file": "frontier_scaling_samples.csv",
+      "rows": 126
+    },
+    {
+      "file": "frontier_selector_rows.csv",
+      "rows": 16384
+    },
+    {
+      "file": "frontier_startup_rows.csv",
+      "rows": 1166
+    },
+    {
+      "file": "frontier_storage_rows.csv",
+      "rows": 1820
+    },
+    {
+      "file": "generated_rows.csv",
+      "rows": 96
+    },
+    {
+      "file": "replay_annotation_minima.csv",
+      "rows": 32
+    },
+    {
+      "file": "replay_small_oracle_rows.csv",
+      "rows": 28
+    },
+    {
+      "file": "replay_structured_rows.csv",
+      "rows": 144
+    },
+    {
+      "file": "replay_three_ticket_rows.csv",
+      "rows": 32768
+    },
+    {
+      "file": "resource_rows.csv",
+      "rows": 2376
+    }
+  ],
+  "retained_not_regenerated": [
+    "campaign_accounting.json",
+    "f1-format-validation.json",
+    "pilot_intake.json",
+    "resource_intake.json"
+  ],
+  "excluded_measurement_fields": [
+    "child_cpu_seconds",
+    "child_peak_rss_kib_so_far",
+    "cpu_seconds",
+    "maximum_selector_cpu_seconds",
+    "median_selector_cpu_seconds",
+    "median_selector_wall_seconds",
+    "peak_rss_kib",
+    "preparation_cpu_seconds",
+    "wall_seconds"
+  ],
+  "author_run": {
+    "completed_steps": 44,
+    "unit_test_methods": 51,
+    "child_cpu_seconds": 228.00807099999997,
+    "maximum_recorded_child_rss_mib": 103.66796875,
+    "max_concurrent_children": 1
+  },
+  "clean_run": {
+    "completed_steps": 44,
+    "unit_test_methods": 51,
+    "child_cpu_seconds": 253.565188,
+    "maximum_recorded_child_rss_mib": 103.6640625,
+    "max_concurrent_children": 1
+  },
+  "clean_identical_python_files": 27,
+  "clean_identical_case_files": 1409,
+  "inherited_byte_identical_files": [
+    "artifact/tests/test_semantics.py",
+    "artifact/tests/test_format_validation.py",
+    "artifact/tests/test_frontiers.py",
+    "artifact/semantic_certificates/reference.py",
+    "artifact/semantic_certificates/checker.py",
+    "artifact/semantic_certificates/target.py",
+    "artifact/semantic_certificates/frontier_oracle.py",
+    "paper/acmart.cls",
+    "paper/ACM-Reference-Format.bst",
+    "paper/figures/ticket-retirement.tex"
+  ],
+  "execution_and_integrity_checks_passed": true,
+  "submission_readiness_certified": false,
+  "measurement_scope": "Sum and maximum of recorded completed steps only. Two author-directory outer tool batches were interrupted before recording the next step, then resumed on unchanged code. Their partial CPU, other development runs and historical work are not included. The clean campaign completed continuously.",
+  "freeze_scope": "Python code, tests and generators unchanged through both complete campaigns; theorem-driven tests, not preregistration or an industrial holdout.",
+  "unmet_original_contract": [
+    "12 TOPLAS / 5 influential / 5 adjacent whole-paper calibration",
+    "Complete technical full-text access to every closest recent system",
+    "Last-line-exact fill of the final page is not asserted; no spacing or content padding is used."
+  ],
+  "pdf": {
+    "pages": 50,
+    "words_by_page": [
+      560,
+      648,
+      603,
+      575,
+      661,
+      591,
+      487,
+      539,
+      501,
+      543,
+      607,
+      607,
+      641,
+      711,
+      656,
+      578,
+      542,
+      602,
+      515,
+      543,
+      658,
+      712,
+      599,
+      639,
+      541,
+      606,
+      575,
+      533,
+      671,
+      624,
+      616,
+      583,
+      621,
+      646,
+      633,
+      612,
+      602,
+      525,
+      481,
+      555,
+      582,
+      559,
+      491,
+      578,
+      618,
+      533,
+      553,
+      599,
+      744,
+      362
+    ],
+    "total_extracted_words_including_line_numbers": 29361,
+    "parsed_without_repair": true,
+    "out_of_page_text_pages": [],
+    "text_empty_pages": [],
+    "embedded_font_records": 18,
+    "bibliography_entries": 38,
+    "visual_inspection": "All 50 pages rendered at 110 dpi; nine contact sheets examined, with both original figures and new proof/evidence pages also checked at page scale.",
+    "tools_used": [
+      "PyMuPDF",
+      "pdffonts",
+      "pdflatex",
+      "bibtex"
+    ],
+    "qpdf_run": false,
+    "render_comparison_dpi": 90,
+    "pixel_differing_pages": [],
+    "text_differing_pages": []
+  },
+  "literature": {
+    "bibtex_entries": 38,
+    "distinct_body_citations": 38,
+    "rendered_entries": 38,
+    "duplicate_doi": 0,
+    "unresolved_citation_keys": 0,
+    "uncited_bibtex_keys": 0,
+    "access_levels": {
+      "metadata_or_abstract": 20,
+      "technical_fulltext_passages": 17,
+      "author_presentation": 1
+    },
+    "whole_paper_calibration_complete": false,
+    "scope": "Internal source-key/field/render consistency. Reading scope and source provenance remain per record; no automatic network verification, whole-paper reading or exhaustive novelty claim."
+  },
+  "clean_regenerated_paper": {
+    "prepared_from_clean_results": true,
+    "compiled": true,
+    "pages": 50,
+    "rendered_references": 38,
+    "expected_changes": [
+      "completed-step CPU total",
+      "maximum recorded child RSS",
+      "selector timing samples"
+    ],
+    "byte_or_pixel_equality_claim_for_refreshed_measurements": false
+  },
+  "localized_figure_correction": {
+    "source": "paper/figures/shifted-reservations.tex",
+    "edit": "Start the common-clock dashed guide at the horizontal axis, y=0 rather than y=-0.45, so it does not cross the iI tick label. All labels, nodes, relationships and layout coordinates otherwise unchanged.",
+    "new_scientific_content": false,
+    "text_differing_pages": [],
+    "render_differing_pages_from_pre_correction": [
+      20
+    ]
+  }
+}

@@ -2,9 +2,9 @@
   "construction_failure_is_not_global_infeasibility": true,
   "input_cases": 2304,
   "measurement": {
-    "cpu_seconds": 3.094875402,
-    "peak_rss_kib": 95276,
-    "wall_seconds": 3.0938785420003114,
+    "cpu_seconds": 7.554768320000001,
+    "peak_rss_kib": 95792,
+    "wall_seconds": 7.55791933799992,
     "workers": 1
   },
   "mismatches": 0,

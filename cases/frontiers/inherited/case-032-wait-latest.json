@@ -1,0 +1,512 @@
+{
+  "program": {
+    "actual": [
+      "p"
+    ],
+    "attempts": [
+      {
+        "args": [
+          {
+            "input": "x"
+          },
+          {
+            "distance": 3,
+            "forward": "v0"
+          }
+        ],
+        "kind": "op",
+        "name": "w_v0_op",
+        "node": "v0",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            "p"
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "distance": 3,
+            "forward": "v0"
+          }
+        ],
+        "kind": "copy",
+        "name": "w_v0_copy",
+        "node": "v0",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            [
+              "not",
+              "p"
+            ]
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "w_v0_op",
+            "when": [
+              "not",
+              "p"
+            ]
+          },
+          {
+            "attempt": "w_v0_copy",
+            "when": [
+              "not",
+              [
+                "not",
+                "p"
+              ]
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "w_v0_join",
+        "node": "v0",
+        "offset": 13,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "op",
+        "name": "w_v1_op",
+        "node": "v1",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            "p"
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "copy",
+        "name": "w_v1_copy",
+        "node": "v1",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            [
+              "not",
+              "p"
+            ]
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "w_v1_op",
+            "when": [
+              "not",
+              "p"
+            ]
+          },
+          {
+            "attempt": "w_v1_copy",
+            "when": [
+              "not",
+              [
+                "not",
+                "p"
+              ]
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "w_v1_join",
+        "node": "v1",
+        "offset": 9,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "distance": 3,
+            "forward": "v2"
+          },
+          {
+            "attempt": "w_v1_join"
+          }
+        ],
+        "kind": "op",
+        "name": "w_v2_op",
+        "node": "v2",
+        "offset": 10,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            "p"
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "attempt": "w_v1_join"
+          }
+        ],
+        "kind": "copy",
+        "name": "w_v2_copy",
+        "node": "v2",
+        "offset": 10,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            [
+              "not",
+              "p"
+            ]
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "w_v2_op",
+            "when": [
+              "not",
+              "p"
+            ]
+          },
+          {
+            "attempt": "w_v2_copy",
+            "when": [
+              "not",
+              [
+                "not",
+                "p"
+              ]
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "w_v2_join",
+        "node": "v2",
+        "offset": 11,
+        "when": true
+      }
+    ],
+    "costs": {
+      "add": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "copy": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "div": {
+        "latency": 5,
+        "reserve": [
+          0
+        ],
+        "resource": "div"
+      },
+      "id": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "load": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "mul": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "mux": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "store": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "sub": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      }
+    },
+    "exports": {
+      "v0": {
+        "choices": [
+          {
+            "attempt": "w_v0_copy",
+            "when": "p"
+          },
+          {
+            "attempt": "w_v0_op",
+            "when": [
+              "not",
+              "p"
+            ]
+          }
+        ],
+        "offset": 14
+      },
+      "v2": {
+        "choices": [
+          {
+            "attempt": "w_v2_copy",
+            "when": "p"
+          },
+          {
+            "attempt": "w_v2_op",
+            "when": [
+              "not",
+              "p"
+            ]
+          }
+        ],
+        "offset": 14
+      }
+    },
+    "guard_ready": {
+      "h": 0,
+      "p": 8
+    },
+    "ii": 4,
+    "input_ready": {
+      "x": 0,
+      "y": 0
+    },
+    "inputs": [
+      "x",
+      "y"
+    ],
+    "nodes": [
+      {
+        "args": [
+          {
+            "input": "x"
+          },
+          {
+            "distance": 3,
+            "node": "v0"
+          }
+        ],
+        "emit": false,
+        "fallback": {
+          "distance": 3,
+          "node": "v0"
+        },
+        "guard": [
+          "not",
+          "p"
+        ],
+        "name": "v0",
+        "op": "div"
+      },
+      {
+        "args": [
+          {
+            "input": "x"
+          }
+        ],
+        "emit": false,
+        "fallback": {
+          "input": "y"
+        },
+        "guard": [
+          "not",
+          "p"
+        ],
+        "name": "v1",
+        "op": "id"
+      },
+      {
+        "args": [
+          {
+            "distance": 3,
+            "node": "v2"
+          },
+          {
+            "distance": 0,
+            "node": "v1"
+          }
+        ],
+        "emit": true,
+        "fallback": {
+          "distance": 0,
+          "node": "v1"
+        },
+        "guard": [
+          "not",
+          "p"
+        ],
+        "name": "v2",
+        "op": "add"
+      }
+    ],
+    "predicted": [
+      "h"
+    ],
+    "resources": {
+      "alu": 1,
+      "div": 1,
+      "mem": 1,
+      "move": 2
+    },
+    "retire": 14,
+    "retirement": {
+      "v0": [
+        {
+          "attempt": "w_v0_join",
+          "when": true
+        }
+      ],
+      "v1": [
+        {
+          "attempt": "w_v1_join",
+          "when": true
+        }
+      ],
+      "v2": [
+        {
+          "attempt": "w_v2_join",
+          "when": true
+        }
+      ]
+    }
+  },
+  "source_case": "cases/generated/case-032.json",
+  "synthesis": {
+    "bank_layout": {
+      "v0": {
+        "export": 14,
+        "last_use": 20,
+        "slots": 2
+      },
+      "v2": {
+        "export": 14,
+        "last_use": 22,
+        "slots": 3
+      }
+    },
+    "earliest": {
+      "v0": 13,
+      "v2": 11
+    },
+    "minimality": {
+      "v0": {
+        "excluded": {
+          "w_v0_copy": {
+            "bad_valuation": {
+              "h": false,
+              "p": false
+            }
+          },
+          "w_v0_join": {
+            "not_ready": 14
+          },
+          "w_v0_op": {
+            "not_ready": 13
+          }
+        },
+        "known": {
+          "h": false,
+          "p": false
+        },
+        "time": 12
+      },
+      "v2": {
+        "excluded": {
+          "w_v2_copy": {
+            "not_ready": 11
+          },
+          "w_v2_join": {
+            "not_ready": 12
+          },
+          "w_v2_op": {
+            "not_ready": 11
+          }
+        },
+        "known": {
+          "h": false,
+          "p": false
+        },
+        "time": 10
+      }
+    },
+    "policy": "latest",
+    "selected": {
+      "v0": 14,
+      "v2": 14
+    },
+    "timing_lower_bound": 2,
+    "tried": [
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 2
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 3
+      },
+      {
+        "accepted": true,
+        "codes": [],
+        "ii": 4
+      }
+    ]
+  }
+}

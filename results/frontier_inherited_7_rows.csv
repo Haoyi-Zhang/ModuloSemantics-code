@@ -1,0 +1,49 @@
+case,variant,admitted,retirement_only_admitted,ii,cells,comparisons,reason
+case-084,wait-earliest,True,True,1,1,72,
+case-084,wait-latest,True,True,1,1,72,
+case-084,recover-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-084,recover-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-085,wait-earliest,True,True,1,0,72,
+case-085,wait-latest,True,True,1,0,72,
+case-085,recover-earliest,True,True,2,0,72,
+case-085,recover-latest,True,True,2,0,72,
+case-086,wait-earliest,True,True,4,0,72,
+case-086,wait-latest,True,True,4,0,72,
+case-086,recover-earliest,True,True,12,0,72,
+case-086,recover-latest,True,True,12,0,72,
+case-087,wait-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-087,wait-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-087,recover-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-087,recover-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-088,wait-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=2
+case-088,wait-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=2
+case-088,recover-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=4
+case-088,recover-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=4
+case-089,wait-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-089,wait-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-089,recover-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-089,recover-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-090,wait-earliest,True,True,1,0,72,
+case-090,wait-latest,True,True,1,0,72,
+case-090,recover-earliest,True,True,2,0,72,
+case-090,recover-latest,True,True,2,0,72,
+case-091,wait-earliest,True,True,1,0,72,
+case-091,wait-latest,True,True,1,0,72,
+case-091,recover-earliest,True,True,2,0,72,
+case-091,recover-latest,True,True,2,0,72,
+case-092,wait-earliest,True,True,3,3,72,
+case-092,wait-latest,True,True,3,1,72,
+case-092,recover-earliest,True,True,9,4,72,
+case-092,recover-latest,True,True,9,2,72,
+case-093,wait-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-093,wait-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-093,recover-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-093,recover-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-094,wait-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-094,wait-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-094,recover-earliest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-094,recover-latest,False,False,,,0,No admitted interval in the requested domain; lower bound=1
+case-095,wait-earliest,True,True,4,0,72,
+case-095,wait-latest,True,True,4,0,72,
+case-095,recover-earliest,True,True,7,0,72,
+case-095,recover-latest,True,True,7,0,72,

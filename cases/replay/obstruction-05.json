@@ -1,0 +1,40 @@
+{
+  "at": 1,
+  "masks": [
+    0,
+    0,
+    0
+  ],
+  "ready": [
+    2,
+    0,
+    0
+  ],
+  "releases": {
+    "p": 0,
+    "q": 2
+  },
+  "witness": {
+    "excluded": {
+      "0": {
+        "not_ready": 2
+      },
+      "1": {
+        "bad_valuation": {
+          "p": false,
+          "q": false
+        }
+      },
+      "2": {
+        "bad_valuation": {
+          "p": false,
+          "q": false
+        }
+      }
+    },
+    "known": {
+      "p": false
+    },
+    "time": 1
+  }
+}

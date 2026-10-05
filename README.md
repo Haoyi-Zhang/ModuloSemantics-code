@@ -4,8 +4,12 @@ This repository contains a restricted loop language, a structural certificate
 checker, separately implemented sequential and event-driven interpreters, exact
 finite oracles, deterministic generated inputs, and handwritten mathematical
 proofs. It is a self-contained research artifact, not a production compiler or a
-proof-assistant development. The investigation has **not passed Scientific Lock**:
-a publication-level novelty/significance argument remains unresolved.
+proof-assistant development. The current manuscript develops certified early exports, information-uniform
+selector synthesis, a canonical Ret/Forward annotation minimizing separate
+forwarding banks, and a complete-by-retirement period cutoff. These are restricted
+model-level results, not external peer review or a guarantee of publication.
+Recent neighboring verification systems and remaining full-text access limits
+are recorded in `literature/reference-audit.json`.
 
 ## Reproduce the recorded evidence
 
@@ -36,10 +40,9 @@ resume the recorded completed prefix. `--resume` does not certify that files
 have remained unchanged; re-extract and restart after any code modification.
 
 ```sh
-python reproduce.py --max-steps 5
-python reproduce.py --resume --max-steps 5
-python reproduce.py --resume --max-steps 5
-python reproduce.py --resume
+python reproduce.py --max-steps 1
+python reproduce.py --resume --max-steps 1
+# Repeat the resume command until all 44 steps are recorded.
 ```
 
 For isolated diagnostic chunks (these do not accumulate a full-run pass):
@@ -97,9 +100,8 @@ Finite checks are not general mechanized proofs. The sequential interpreter
 imports neither the checker nor the target interpreter; the target interpreter
 does not call the checker. The reservation oracle explicitly unrolls clocks
 rather than using the checker's phase/stage quotient. These code separations
-reduce some shared implementation risks, but every component was developed in
-the same development session. There was no independently authored or
-external blind verification.
+reduce some shared implementation risks but retain shared mathematical
+conventions and development history.
 
 The recorded main matrix has 132,608 accepted-candidate comparisons from eight
 exhaustive schemas and 2,592 comparisons from admitted schedules of 96 generated
@@ -124,9 +126,73 @@ schedule; the checker is not generally complete or necessary. The 6,144-pair
 constructor test is a post-result falsification of the explanatory dominance
 lemma, not a retroactively preregistered speedup experiment.
 
+
+## Certified exports and canonical annotation
+
+`proofs/frontiers.md` specifies the extension and its proofs. The following
+example runs locally from the repository root. It saves an admitted canonical
+certificate; it is not an external compiler integration.
+
+```python
+import json
+from semantic_certificates.builders import instruction, make_program, build, inp, node
+from semantic_certificates.checker import check
+from semantic_certificates.frontiers import hybrid_at, hybrid_design_space
+
+source = make_program([
+    instruction("s", "add", [node("s", 1), inp("x")], True, emit=True),
+    instruction("t", "div", [inp("z"), inp("y")], True, emit=True),
+], release=0, div_latency=12, capacity=4)
+skeleton = build(source, "wait")
+certificate, plan = hybrid_at(skeleton, 1)
+assert check(certificate).accepted
+with open("certified-export.json", "w") as f:
+    json.dump(certificate, f, indent=2)
+space = hybrid_design_space(skeleton, cell_budget=1)
+print(space["minimum_budget_feasible_ii"], space["pareto"])
+```
+
+The selector interface `selection_at` computes a common good completed ticket
+for every assignment of released atoms. `earliest_selection` searches release
+and completion times. `obstruction_at`/`verify_obstruction` produce and replay
+an information-cell refutation. Both public entry points explicitly validate
+release/candidate objects, exact keys and strict integer ranges. An invalid
+model or witness returns false from the replay function; unexpected implementation
+exceptions are not hidden by a catch-all handler.
+`hybrid_at` forwards exactly the satisfiable carried uses with deadline below
+retirement, exports at the latest mandatory deadline, and checks the resulting
+certificate. `hybrid_design_space` enumerates the proved finite period domain,
+reports its Pareto set, and flags truncation when retirement exceeds the
+representation's maximum period 256.
+
+`frontier_oracle.py` contains separately expressed whole-decision-table,
+tagged-lifetime, complete-annotation and direct-clock checks. It imports neither
+the production checker/target/frontier module nor their model classes. The
+implementation separations are described above. The original two interpreter paths
+and the new direct-clock path are not three unrelated real compiler back ends.
+
+The 44-step reproduction reruns the original campaign, export/annotation checks
+and optimum-proof replay. The suite has 51 methods: the original unchanged 21,
+the existing 21 frontier methods and nine new replay/format methods.
+New evidence includes 17,408 fixed-time selector queries, 4,096 earliest-time
+queries, 1,820 labelled storage cases, and 32 complete small annotation queries
+with 512 assignments and 13,346 export-time vectors. Four concrete feedback
+families compare six policies across three execution paths (195,408 comparisons).
+Together with inherited-source forwarding, boundary runs and annotation
+executions, new target comparisons total 212,592. Finite agreement is not the
+proof of the general theorem. See raw results and `proofs/frontier-protocol.md`
+for every denominator, input domain, failure rule and development limitation.
+
+No GPU, model API, external solver or third-party compiler is invoked. No
+industrial workload is called a holdout, and no physical speedup is inferred.
+The old full-replay negative theorem remains valid for its retirement-only
+premises. The new startup resource witness strengthens universal admission
+under complete-by-retirement; it does not identify a chosen fault-truncated
+run's peak or its minimum actual storage with the unconditional envelope.
+
 ## Certificate model and input format
 
-A certificate is a JSON object with exactly these top-level fields:
+A certificate is a JSON object with these required top-level fields and optional `exports`:
 `actual`, `predicted`, `guard_ready`, `inputs`, `input_ready`, `nodes`, `costs`,
 `resources`, `ii`, `retire`, `attempts`, `retirement`. The fully enumerated
 examples under `cases/` are the executable schema examples. Unknown fields are
@@ -154,8 +220,12 @@ An attempt has `name`, source `node`, `kind`, `when`, and `offset`. The kinds
 `op` and `copy` have `args`. A `mux` has `choices`, each containing `when` and
 `attempt`. Local attempt references use `{"attempt":"a"}` and must point
 backwards in the list. Cross-iteration references use
-`{"retired":"v","distance":d}` with d at least one. They cannot name
-unretired speculative state. Retirement maps each source node to a total,
+`{"retired":"v","distance":d}` with d at least one. They cannot name arbitrary unretired speculative state. An explicit
+`{"forward":"v","distance":d}` instead reads a separately checked private
+export of the same source value-or-fault ticket. `exports[v]` contains exactly
+`offset` (0..retire) and a total disjoint `choices` partition. Its selected
+same-source tickets must be good and complete, and the selector may mention
+only atoms released by that offset. Retirement maps each source node to a total,
 disjoint list of choices of its own identity. Attempts emit no source events;
 only retirement does. All values, including faults, are private until chosen.
 
@@ -164,7 +234,7 @@ integer `reserve` positions from zero through latency minus one. These are
 user-declared abstract costs, not measured processor properties. Resource
 capacities are positive integers. An attempt at offset s in iteration i issues
 at i*ii+s. Its selected operands must be available then. The iteration retires
-at i*ii+retire. At equal clock times, completions precede retirement, which
+at i*ii+retire. At equal clock times, completions precede exports, exports precede retirement, and retirement
 precedes issues. This tie rule is part of the proof, not an incidental sorting
 choice.
 
@@ -201,14 +271,14 @@ interval bound and diagnostics. It is not a proof of global infeasibility.
 original 18 focused checks, including two retained implementation regressions.
 `tests/test_format_validation.py` adds three API/CLI methods for the F1 format
 boundary: same-name arrays, strings, `null`, exact availability keys, strict
-integer releases, and the normal object case. A targeted post-repair run passed
-the original 18, the new three, and all 21 under discovery; the exact output is
-`results/unit-tests.txt` and the direct probes are in
-`results/f1-format-validation.json`. A standalone `verify_results.py` pass
-reconciled retained counts and stored cases against the current checker; it did
-not regenerate experiments or recertify the full 16-stage sequence. The
-regressions preserve the actual witnesses,
-not a claim that the repaired implementation is now generally proved correct.
+integer releases, and the normal object case. Those unchanged 18 semantic and
+three format methods are included in the current 51-method suite; its actual
+output is `results/unit-tests.txt`. The earlier direct format probes remain in
+`results/f1-format-validation.json` and are not relabelled as a regenerated task.
+The current 44-step driver reruns the inherited scientific campaign and both
+extensions. In contrast, running `verify_results.py` alone only reconciles stored
+counts and cases; it does not rerun the campaign. These regressions preserve
+actual witnesses, not a claim that the Python implementation is generally proved.
 
 `cases/generated/` contains all generated source schemas, admitted certificates,
 construction-failure candidates and exact sampled execution inputs. The fixed
@@ -226,6 +296,63 @@ claim. `external_resources.csv` distinguishes read scholarly passages, indexed
 metadata, blocked full-text access, and supplied template assets. No baseline
 internals or third-party research code have been modified or integrated.
 
+
+## Replaying a budget-optimum claim
+
+`proofs/optimization-replay.md` specifies the evidence format and proof. The
+producer `optimization_witness.certify_budget` creates consecutive exclusion
+rows and a checked winning certificate. The consumer
+`optimization_replay.verify_optimum` takes the fixed skeleton and budget as
+external inputs. It does not call selector search, annotation optimization or
+the production bank layout. It still trusts the semantic checker, Boolean table
+calculation, obstruction replay and the stated handwritten normal-form theorem.
+
+From the repository root, this example regenerates and replays a stored case:
+
+```sh
+python - <<'PYCODE'
+import json
+from pathlib import Path
+from semantic_certificates.optimization_witness import certify_budget
+from semantic_certificates.optimization_replay import verify_optimum
+case = json.loads(Path('cases/replay/matrix-recover-2-3-9-4-1.json').read_text())
+proof = certify_budget(case['skeleton'], 1)
+result = verify_optimum(case['skeleton'], 1, proof)
+assert result['accepted'] and result['minimum_period'] == 4
+print(json.dumps(result, indent=2))
+PYCODE
+```
+
+For separate JSON files, the CLI is:
+
+```sh
+python -m semantic_certificates.optimization_replay skeleton.json proof.json --budget 1
+```
+
+The first file is the fixed skeleton object, not a whole case container; the
+second is its `proof` object. The API returns structured acceptance or rejection.
+The CLI emits JSON and exits 0 on acceptance, 2 on input/evidence rejection.
+This offline research API is not a general hostile-file execution sandbox.
+
+The full campaign runs three additional tasks and their reconciliation:
+
+```sh
+python run_bounded.py -m semantic_certificates.replay_experiments three-tickets
+python run_bounded.py -m semantic_certificates.replay_experiments small-oracle
+python run_bounded.py -m semantic_certificates.replay_experiments structured
+python run_bounded.py verify_replay.py
+```
+
+Executed finite domains: 32,768 three-ticket queries, 28,279 replayed obstructions
+and damaged-witness rejections; 28 independent-oracle budget queries; 144
+structured queries (126 positive and 18 negative optima) and 540 rejected proof
+mutants. The 512 annotations / 13,346 export-time tuples in the small oracle
+reuse the earlier exact domain; they are not a new workload or additional
+source/target comparison count. The structured grid compares the producer,
+consumer and normal-form optimizer, not an independently authored system.
+A negative proof truncated at 256 when C exceeds 256 explicitly reports bounded
+scope. Positive proofs can still establish a global minimum below that cap.
+
 ## Limits, provenance and licensing
 
 Original implementation, generated cases, results and exposition carry the MIT
@@ -235,8 +362,7 @@ identifiers and access limitations are retained instead. The repository does
 not require the publisher template. The project paper separately retains the
 supplied ACM class/style and their unmodified LPPL notice.
 
-The 12 same-venue / 5 influential / 5 adjacent full-paper calibration is not
-complete. The original Lam source full text and live TOPLAS guide were not
-successfully retrieved at their supplied endpoints. Modern validation and
-predication work already blocks broad novelty claims. The current manuscript
-is an internal technical record rather than a completed 50-page TOPLAS article.
+Substantive AI assistance was used for formulation, literature screening,
+proof drafting, code generation and revision, experiment orchestration,
+analysis, validation and manuscript writing. The experiments execute the
+included deterministic Python programs; they do not execute a language model.

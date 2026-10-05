@@ -2,9 +2,9 @@
   "algebraic_incompleteness_cases": 144,
   "certificate_mutants": 7,
   "measurement": {
-    "cpu_seconds": 0.019915495999999977,
+    "cpu_seconds": 0.06780428099999991,
     "peak_rss_kib": 94252,
-    "wall_seconds": 0.01940253999964625,
+    "wall_seconds": 0.06728061299986621,
     "workers": 1
   },
   "rejected": 7,

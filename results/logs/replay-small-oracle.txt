@@ -1,0 +1,13 @@
+{
+  "budget_queries": 28,
+  "independent_oracle": true,
+  "disagreements": 0,
+  "exclusion_and_positive_rows": {
+    "budget": 60,
+    "feasible": 28
+  },
+  "period_queries": 32,
+  "annotation_assignments": 512,
+  "export_time_tuples": 13346,
+  "raw_rows": "results/replay_small_oracle_rows.csv"
+}

@@ -1,0 +1,745 @@
+{
+  "program": {
+    "actual": [
+      "p"
+    ],
+    "attempts": [
+      {
+        "args": [
+          {
+            "distance": 2,
+            "forward": "s"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "op",
+        "name": "f_s_op",
+        "node": "s",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          "h"
+        ]
+      },
+      {
+        "args": [
+          {
+            "distance": 2,
+            "forward": "s"
+          }
+        ],
+        "kind": "copy",
+        "name": "f_s_copy",
+        "node": "s",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            "h"
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "f_s_op",
+            "when": "h"
+          },
+          {
+            "attempt": "f_s_copy",
+            "when": [
+              "not",
+              "h"
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "f_s_join",
+        "node": "s",
+        "offset": 2,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "input": "z"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "op",
+        "name": "f_t_op",
+        "node": "t",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          true
+        ]
+      },
+      {
+        "args": [
+          {
+            "constant": 0
+          }
+        ],
+        "kind": "copy",
+        "name": "f_t_copy",
+        "node": "t",
+        "offset": 0,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            true
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "f_t_op",
+            "when": true
+          },
+          {
+            "attempt": "f_t_copy",
+            "when": [
+              "not",
+              true
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "f_t_join",
+        "node": "t",
+        "offset": 11,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "distance": 2,
+            "forward": "s"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "op",
+        "name": "r_s_op",
+        "node": "s",
+        "offset": 3,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "p"
+        ]
+      },
+      {
+        "args": [
+          {
+            "distance": 2,
+            "forward": "s"
+          }
+        ],
+        "kind": "copy",
+        "name": "r_s_copy",
+        "node": "s",
+        "offset": 3,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "not",
+            "p"
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "r_s_op",
+            "when": "p"
+          },
+          {
+            "attempt": "r_s_copy",
+            "when": [
+              "not",
+              "p"
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "r_s_join",
+        "node": "s",
+        "offset": 5,
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "z"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "op",
+        "name": "r_t_op",
+        "node": "t",
+        "offset": 3,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          true
+        ]
+      },
+      {
+        "args": [
+          {
+            "constant": 0
+          }
+        ],
+        "kind": "copy",
+        "name": "r_t_copy",
+        "node": "t",
+        "offset": 3,
+        "when": [
+          "and",
+          [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "not",
+            true
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "r_t_op",
+            "when": true
+          },
+          {
+            "attempt": "r_t_copy",
+            "when": [
+              "not",
+              true
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "r_t_join",
+        "node": "t",
+        "offset": 14,
+        "when": [
+          "not",
+          [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ],
+    "costs": {
+      "add": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "copy": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "div": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "div"
+      },
+      "id": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "load": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "mul": {
+        "latency": 11,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "mux": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "store": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "sub": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      }
+    },
+    "exports": {
+      "s": {
+        "choices": [
+          {
+            "attempt": "f_s_copy",
+            "when": [
+              "and",
+              [
+                "not",
+                "h"
+              ],
+              [
+                "not",
+                "p"
+              ]
+            ]
+          },
+          {
+            "attempt": "f_s_op",
+            "when": [
+              "and",
+              "h",
+              "p"
+            ]
+          },
+          {
+            "attempt": "r_s_copy",
+            "when": [
+              "and",
+              "h",
+              [
+                "not",
+                "p"
+              ]
+            ]
+          },
+          {
+            "attempt": "r_s_op",
+            "when": [
+              "and",
+              [
+                "not",
+                "h"
+              ],
+              "p"
+            ]
+          }
+        ],
+        "offset": 5
+      }
+    },
+    "guard_ready": {
+      "h": 0,
+      "p": 3
+    },
+    "ii": 3,
+    "input_ready": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "inputs": [
+      "x",
+      "y",
+      "z"
+    ],
+    "nodes": [
+      {
+        "args": [
+          {
+            "distance": 2,
+            "node": "s"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "emit": true,
+        "fallback": {
+          "distance": 2,
+          "node": "s"
+        },
+        "guard": "p",
+        "name": "s",
+        "op": "div"
+      },
+      {
+        "args": [
+          {
+            "input": "z"
+          },
+          {
+            "input": "y"
+          }
+        ],
+        "emit": true,
+        "fallback": {
+          "constant": 0
+        },
+        "guard": true,
+        "name": "t",
+        "op": "mul"
+      }
+    ],
+    "predicted": [
+      "h"
+    ],
+    "resources": {
+      "alu": 4,
+      "div": 4,
+      "mem": 4,
+      "move": 8
+    },
+    "retire": 15,
+    "retirement": {
+      "s": [
+        {
+          "attempt": "f_s_join",
+          "when": [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "attempt": "r_s_join",
+          "when": [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        }
+      ],
+      "t": [
+        {
+          "attempt": "f_t_join",
+          "when": [
+            "and",
+            [
+              "or",
+              [
+                "and",
+                "p",
+                "h"
+              ],
+              [
+                "and",
+                [
+                  "not",
+                  "p"
+                ],
+                [
+                  "not",
+                  "h"
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "attempt": "r_t_join",
+          "when": [
+            "not",
+            [
+              "and",
+              [
+                "or",
+                [
+                  "and",
+                  "p",
+                  "h"
+                ],
+                [
+                  "and",
+                  [
+                    "not",
+                    "p"
+                  ],
+                  [
+                    "not",
+                    "h"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "synthesis": {
+    "bank_layout": {
+      "s": {
+        "export": 5,
+        "last_use": 9,
+        "slots": 2
+      }
+    },
+    "earliest": {
+      "s": 5
+    },
+    "minimality": {
+      "s": {
+        "excluded": {
+          "f_s_copy": {
+            "bad_valuation": {
+              "h": false,
+              "p": true
+            }
+          },
+          "f_s_join": {
+            "bad_valuation": {
+              "h": false,
+              "p": true
+            }
+          },
+          "f_s_op": {
+            "bad_valuation": {
+              "h": false,
+              "p": true
+            }
+          },
+          "r_s_copy": {
+            "bad_valuation": {
+              "h": false,
+              "p": true
+            }
+          },
+          "r_s_join": {
+            "not_ready": 6
+          },
+          "r_s_op": {
+            "not_ready": 5
+          }
+        },
+        "known": {
+          "h": false,
+          "p": true
+        },
+        "time": 4
+      }
+    },
+    "policy": "earliest",
+    "selected": {
+      "s": 5
+    },
+    "timing_lower_bound": 3,
+    "tried": [
+      {
+        "accepted": true,
+        "codes": [],
+        "ii": 3
+      }
+    ]
+  }
+}

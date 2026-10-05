@@ -46,19 +46,35 @@ def primitive(code: str, xs: list[Any]) -> Any:
 
 
 def run_target(p: dict, data: dict, *, eager_faults: bool = False,
-               reverse_retirement: bool = False) -> dict:
+               reverse_retirement: bool = False,
+               bank_slots: dict[str, int] | None = None,
+               metrics: dict | None = None,
+               issue_trace: list[dict] | None = None) -> dict:
     n = data['n']
     if n == 0: return {'trace':[],'state':{},'status':'done'}
     src = {x['name']:x for x in p['nodes']}
     buf, pending, committed, state, trace = {}, {}, {}, {}, []
+    exported = {}
+    banks = None
+    if bank_slots is not None:
+        if (set(bank_slots) != set(p.get('exports', {}))
+                or any(type(k) is not int or k < 1 for k in bank_slots.values())):
+            return {'trace': [], 'state': {}, 'status': 'stuck',
+                    'detail': 'Invalid forwarding bank dimensions'}
+        banks = {v: [None] * size for v, size in bank_slots.items()}
+    def count(label):
+        if metrics is not None:
+            metrics[label] = metrics.get(label, 0) + 1
     events = []
     attempts = {a['name']:a for a in p['attempts']}
     def add(t, phase, i, rank, kind, item):
         heapq.heappush(events,(t,phase,i,rank,kind,item))
     for i in range(n):
         for rank,a in enumerate(p['attempts']):
-            add(i*p['ii']+a['offset'],2,i,rank,'issue',a['name'])
-        add(i*p['ii']+p['retire'],1,i,0,'retire','')
+            add(i*p['ii']+a['offset'],3,i,rank,'issue',a['name'])
+        for rank, (v, entry) in enumerate(p.get('exports', {}).items()):
+            add(i*p['ii']+entry['offset'],1,i,rank,'export',v)
+        add(i*p['ii']+p['retire'],2,i,0,'retire','')
     def ref(r,i):
         if 'constant' in r: return r['constant']
         if 'input' in r:
@@ -68,10 +84,21 @@ def run_target(p: dict, data: dict, *, eager_faults: bool = False,
             return tuple(x) if isinstance(x,list) else x
         if 'attempt' in r: return buf[(i,r['attempt'])]
         j = i-r['distance']
+        v = r['forward'] if 'forward' in r else r['retired']
         if j < 0:
-            x = data['initial'][r['retired']][str(j)]
+            x = data['initial'][v][str(j)]
             return tuple(x) if isinstance(x,list) else x
-        return committed[(j,r['retired'])]
+        if 'forward' in r:
+            count('forward_reads')
+            if current_time < j*p['ii']+p['retire']:
+                count('forward_reads_before_retirement')
+            if banks is None:
+                return exported[(j, v)]
+            cell = banks[v][j % len(banks[v])]
+            if cell is None or cell[0] != j:
+                raise ValueError('Forwarding slot does not contain the requested iteration')
+            return cell[1]
+        return committed[(j,v)]
     try:
         while events:
             t,phase,i,rank,kind,name = heapq.heappop(events)
@@ -86,9 +113,26 @@ def run_target(p: dict, data: dict, *, eager_faults: bool = False,
                     trace.append(['fault',i,attempts[name]['node'],val.error])
                     return {'trace':trace,'state':state,'status':'fault'}
                 continue
+            if kind == 'export':
+                chosen = [b for b in p['exports'][name]['choices'] if pred(b['when'], env)]
+                if len(chosen) != 1:
+                    raise ValueError('Export is not a partition')
+                val = buf[(i, chosen[0]['attempt'])]
+                if banks is None:
+                    exported[(i, name)] = val
+                else:
+                    banks[name][i % len(banks[name])] = (i, val)
+                count('exports')
+                if isinstance(val, Token):
+                    count('fault_exports')
+                if t < i*p['ii']+p['retire']:
+                    count('exports_before_retirement')
+                continue
             if kind == 'issue':
                 a = attempts[name]
                 if not pred(a['when'],env): continue
+                if issue_trace is not None:
+                    issue_trace.append({'iteration': i, 'attempt': name, 'time': t})
                 v = src[a['node']]
                 if a['kind'] == 'op':
                     val = primitive(v['op'],[ref(r,i) for r in a['args']])

@@ -5,9 +5,9 @@
   "grammar_certificates": 216,
   "inputs_per_certificate": 108,
   "measurement": {
-    "cpu_seconds": 0.533338124,
-    "peak_rss_kib": 94380,
-    "wall_seconds": 0.5320328549996702,
+    "cpu_seconds": 1.3769707239999998,
+    "peak_rss_kib": 94244,
+    "wall_seconds": 1.3826481799999328,
     "workers": 1
   },
   "predicate_order": [

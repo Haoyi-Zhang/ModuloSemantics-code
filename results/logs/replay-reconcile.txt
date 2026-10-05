@@ -1,0 +1,15 @@
+{
+  "reconciliation_only": true,
+  "three_ticket_queries": 32768,
+  "obstructions_replayed": 28279,
+  "damaged_witnesses_rejected": 28279,
+  "independent_budget_queries": 28,
+  "structured_budget_queries": 144,
+  "optimum_queries": 172,
+  "structured_positive_optima": 126,
+  "structured_negative_optima": 18,
+  "proof_mutants_rejected": 540,
+  "disagreements": 0,
+  "annotation_grid_reuses_existing_domain_not_new_benchmark_population": true,
+  "tests_not_proof_assistant_verification": true
+}

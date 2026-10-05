@@ -4,9 +4,9 @@
   "hypothesis_timing": "exploratory explanation after the generated-matrix result",
   "implication_counterexamples": 0,
   "measurement": {
-    "cpu_seconds": 10.223115315,
-    "peak_rss_kib": 95272,
-    "wall_seconds": 10.22275730399997,
+    "cpu_seconds": 21.288021979,
+    "peak_rss_kib": 95280,
+    "wall_seconds": 21.291662178000024,
     "workers": 1
   },
   "period_range": [

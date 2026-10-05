@@ -1,0 +1,30 @@
+{
+  "whole_paper_calibration_complete": false,
+  "not_a_network_exhaustiveness_claim": true,
+  "confirmed_companion_presentation": "https://dleothaud.fr/pdf/DAC_2025_presentation.pdf",
+  "presentation_diagram_pages_inspected": [
+    5,
+    6,
+    7
+  ],
+  "not_counted_as_paper_full_text": true,
+  "unsuccessful_fulltext_routes": [
+    {
+      "url": "https://inria.hal.science/hal-05140504/document",
+      "observed": "web tool unable to access"
+    },
+    {
+      "url": "https://inria.hal.science/hal-05365717/document",
+      "observed": "web tool unable to access"
+    },
+    {
+      "url": "https://hal.science/hal-05365717",
+      "observed": "Access Denied challenge page"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/document/11133015",
+      "observed": "JavaScript/robot verification page"
+    }
+  ],
+  "absence_of_a_prior_mechanism_inferred": false
+}

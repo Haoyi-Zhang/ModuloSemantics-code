@@ -1,0 +1,276 @@
+{
+  "actual": [
+    "p"
+  ],
+  "predicted": [
+    "h"
+  ],
+  "guard_ready": {
+    "p": 0,
+    "h": 0
+  },
+  "inputs": [
+    "x",
+    "y",
+    "z"
+  ],
+  "input_ready": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "nodes": [
+    {
+      "name": "s",
+      "op": "add",
+      "args": [
+        {
+          "node": "s",
+          "distance": 1
+        },
+        {
+          "input": "x"
+        }
+      ],
+      "guard": true,
+      "fallback": {
+        "constant": 0
+      },
+      "emit": true
+    },
+    {
+      "name": "t",
+      "op": "div",
+      "args": [
+        {
+          "input": "z"
+        },
+        {
+          "input": "y"
+        }
+      ],
+      "guard": true,
+      "fallback": {
+        "constant": 0
+      },
+      "emit": true
+    }
+  ],
+  "costs": {
+    "id": {
+      "latency": 1,
+      "resource": "alu",
+      "reserve": [
+        0
+      ]
+    },
+    "add": {
+      "latency": 1,
+      "resource": "alu",
+      "reserve": [
+        0
+      ]
+    },
+    "sub": {
+      "latency": 1,
+      "resource": "alu",
+      "reserve": [
+        0
+      ]
+    },
+    "mul": {
+      "latency": 2,
+      "resource": "alu",
+      "reserve": [
+        0
+      ]
+    },
+    "div": {
+      "latency": 12,
+      "resource": "div",
+      "reserve": [
+        0
+      ]
+    },
+    "load": {
+      "latency": 2,
+      "resource": "mem",
+      "reserve": [
+        0
+      ]
+    },
+    "store": {
+      "latency": 2,
+      "resource": "mem",
+      "reserve": [
+        0
+      ]
+    },
+    "copy": {
+      "latency": 1,
+      "resource": "move",
+      "reserve": [
+        0
+      ]
+    },
+    "mux": {
+      "latency": 1,
+      "resource": "move",
+      "reserve": [
+        0
+      ]
+    }
+  },
+  "resources": {
+    "alu": 4,
+    "div": 4,
+    "move": 8,
+    "mem": 4
+  },
+  "ii": 1,
+  "retire": 13,
+  "attempts": [
+    {
+      "name": "w_s_op",
+      "node": "s",
+      "kind": "op",
+      "when": [
+        "and",
+        true,
+        true
+      ],
+      "offset": 0,
+      "args": [
+        {
+          "distance": 1,
+          "forward": "s"
+        },
+        {
+          "input": "x"
+        }
+      ]
+    },
+    {
+      "name": "w_s_copy",
+      "node": "s",
+      "kind": "copy",
+      "when": [
+        "and",
+        true,
+        [
+          "not",
+          true
+        ]
+      ],
+      "offset": 0,
+      "args": [
+        {
+          "constant": 0
+        }
+      ]
+    },
+    {
+      "name": "w_s_join",
+      "node": "s",
+      "kind": "mux",
+      "when": true,
+      "offset": 1,
+      "choices": [
+        {
+          "when": true,
+          "attempt": "w_s_op"
+        },
+        {
+          "when": [
+            "not",
+            true
+          ],
+          "attempt": "w_s_copy"
+        }
+      ]
+    },
+    {
+      "name": "w_t_op",
+      "node": "t",
+      "kind": "op",
+      "when": [
+        "and",
+        true,
+        true
+      ],
+      "offset": 0,
+      "args": [
+        {
+          "input": "z"
+        },
+        {
+          "input": "y"
+        }
+      ]
+    },
+    {
+      "name": "w_t_copy",
+      "node": "t",
+      "kind": "copy",
+      "when": [
+        "and",
+        true,
+        [
+          "not",
+          true
+        ]
+      ],
+      "offset": 0,
+      "args": [
+        {
+          "constant": 0
+        }
+      ]
+    },
+    {
+      "name": "w_t_join",
+      "node": "t",
+      "kind": "mux",
+      "when": true,
+      "offset": 12,
+      "choices": [
+        {
+          "when": true,
+          "attempt": "w_t_op"
+        },
+        {
+          "when": [
+            "not",
+            true
+          ],
+          "attempt": "w_t_copy"
+        }
+      ]
+    }
+  ],
+  "retirement": {
+    "s": [
+      {
+        "when": true,
+        "attempt": "w_s_join"
+      }
+    ],
+    "t": [
+      {
+        "when": true,
+        "attempt": "w_t_join"
+      }
+    ]
+  },
+  "exports": {
+    "s": {
+      "offset": 1,
+      "choices": [
+        {
+          "when": true,
+          "attempt": "w_s_op"
+        }
+      ]
+    }
+  }
+}

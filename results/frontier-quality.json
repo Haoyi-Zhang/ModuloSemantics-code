@@ -1,0 +1,19 @@
+{
+  "constructor_pairs": 360,
+  "copied_admitted": 340,
+  "equal_ii": 87,
+  "larger_ii": 0,
+  "measurement": {
+    "cpu_seconds": 6.243181954,
+    "peak_rss_kib": 96168,
+    "wall_seconds": 6.245476781999969,
+    "workers": 1
+  },
+  "paired_admitted": 340,
+  "raw_rows": "results/frontier_quality_rows.csv",
+  "retirement_only_admitted": 340,
+  "smaller_banks_at_same_ii": 185,
+  "smaller_ii": 253,
+  "source_schemas": 180,
+  "synthesized_admitted": 340
+}

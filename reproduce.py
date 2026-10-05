@@ -7,11 +7,24 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 FAMILIES=('guarded-division','fault-prefix','memory-token','recurrence-one',
           'recurrence-three','complementary','two-predicates','identity-boundary')
+FRONTIER_STEPS=('selectors','storage','quality','recurrence-tail','guarded-feedback',
+                'cross-feedback','functional-feedback','controls',
+                *(f'inherited-{j}' for j in range(8)), 'inherited','boundary',
+                'designs','scaling','startup','hybrid-oracle','hybrid-designs')
 STEPS=['tests','pilot',*FAMILIES,'mutations','resources','generated',
-       'certificate-oracle','dominance','reconcile']
+       'certificate-oracle','dominance',
+       *('frontier-'+s for s in FRONTIER_STEPS),
+       'replay-three-tickets','replay-small-oracle','replay-structured',
+       'reconcile','frontier-reconcile','replay-reconcile']
 
 def command(step):
     py=sys.executable
+    if step=='replay-reconcile':return [py,'verify_replay.py']
+    if step.startswith('replay-'):
+        return [py,'-m','semantic_certificates.replay_experiments',step[len('replay-'):]]
+    if step=='frontier-reconcile':return [py,'verify_frontiers.py']
+    if step.startswith('frontier-'):
+        return [py,'-m','semantic_certificates.frontier_experiments',step[len('frontier-'):]]
     if step=='tests':return [py,'-m','unittest','discover','-s','tests','-v']
     if step=='certificate-oracle':return [py,'-m','semantic_certificates.certificate_oracle']
     if step=='dominance':return [py,'-m','semantic_certificates.dominance']
@@ -68,6 +81,8 @@ def main():
         cpu=(after.ru_utime+after.ru_stime)-(before.ru_utime+before.ru_stime)
         entry={'step':step,'returncode':code,'wall_seconds':time.perf_counter()-t,
                'child_cpu_seconds':cpu,'timed_out':timed_out}
+        logdir=ROOT/'results/logs';logdir.mkdir(exist_ok=True)
+        (logdir/(step+'.txt')).write_text(output)
         if step=='tests':(ROOT/'results/unit-tests.txt').write_text(output)
         report['completed_steps'].append(entry)
         report['child_cpu_seconds']+=cpu;report['wall_seconds']=prior_wall+time.perf_counter()-start

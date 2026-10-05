@@ -1,0 +1,8 @@
+{
+  "damaged_witnesses_rejected": 28279,
+  "disagreements": 0,
+  "obstructions_replayed": 28279,
+  "queries": 32768,
+  "raw_rows": "results/replay_three_ticket_rows.csv",
+  "selectors": 4489
+}

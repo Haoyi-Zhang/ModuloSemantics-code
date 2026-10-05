@@ -1,0 +1,56 @@
+test_api_checks_exact_keys_and_integer_releases (test_format_validation.AvailabilityFormatTests.test_api_checks_exact_keys_and_integer_releases) ... ok
+test_api_rejects_non_object_availability_maps (test_format_validation.AvailabilityFormatTests.test_api_rejects_non_object_availability_maps) ... ok
+test_cli_returns_json_and_status_two_for_malformed_maps (test_format_validation.AvailabilityFormatTests.test_cli_returns_json_and_status_two_for_malformed_maps) ... ok
+test_bank_envelope_is_not_a_fault_truncated_lower_bound (test_frontiers.FrontierTests.test_bank_envelope_is_not_a_fault_truncated_lower_bound) ... ok
+test_bank_fault_tokens_match_unbounded_storage (test_frontiers.FrontierTests.test_bank_fault_tokens_match_unbounded_storage) ... ok
+test_choice_formulas_use_only_released_atoms (test_frontiers.FrontierTests.test_choice_formulas_use_only_released_atoms) ... ok
+test_fault_export_is_private_and_negative_control_detected (test_frontiers.FrontierTests.test_fault_export_is_private_and_negative_control_detected) ... ok
+test_finite_design_cutoff_and_pareto (test_frontiers.FrontierTests.test_finite_design_cutoff_and_pareto) ... ok
+test_forward_identity_and_availability_are_checked (test_frontiers.FrontierTests.test_forward_identity_and_availability_are_checked) ... ok
+test_forwarding_before_retirement_and_three_executions (test_frontiers.FrontierTests.test_forwarding_before_retirement_and_three_executions) ... ok
+test_hybrid_retains_late_uses_without_extending_bank (test_frontiers.FrontierTests.test_hybrid_retains_late_uses_without_extending_bank) ... ok
+test_information_is_not_pointwise_coverage (test_frontiers.FrontierTests.test_information_is_not_pointwise_coverage) ... ok
+test_interval_growth_need_not_shrink_banks (test_frontiers.FrontierTests.test_interval_growth_need_not_shrink_banks) ... ok
+test_invalid_export_objects_return_format (test_frontiers.FrontierTests.test_invalid_export_objects_return_format) ... ok
+test_late_exports_reduce_forwarding_bank_at_fixed_interval (test_frontiers.FrontierTests.test_late_exports_reduce_forwarding_bank_at_fixed_interval) ... ok
+test_no_selector_without_total_good_coverage (test_frontiers.FrontierTests.test_no_selector_without_total_good_coverage) ... ok
+test_optional_forwarding_recovers_zero_bank_baseline (test_frontiers.FrontierTests.test_optional_forwarding_recovers_zero_bank_baseline) ... ok
+test_resource_admission_is_not_monotone_in_period (test_frontiers.FrontierTests.test_resource_admission_is_not_monotone_in_period) ... ok
+test_resource_envelope_has_startup_witness (test_frontiers.FrontierTests.test_resource_envelope_has_startup_witness) ... ok
+test_ring_inclusive_endpoint_and_undersized_witness (test_frontiers.FrontierTests.test_ring_inclusive_endpoint_and_undersized_witness) ... ok
+test_selector_obstruction_replay_and_tampering (test_frontiers.FrontierTests.test_selector_obstruction_replay_and_tampering) ... ok
+test_shannon_expression_avoids_irrelevant_late_bits (test_frontiers.FrontierTests.test_shannon_expression_avoids_irrelevant_late_bits) ... ok
+test_unknown_forward_and_selector_are_rejected (test_frontiers.FrontierTests.test_unknown_forward_and_selector_are_rejected) ... ok
+test_unneeded_late_information_is_not_a_barrier (test_frontiers.FrontierTests.test_unneeded_late_information_is_not_a_barrier) ... ok
+test_invalid_candidates_do_not_become_obstructions (test_optimization_replay.ObstructionFormatTests.test_invalid_candidates_do_not_become_obstructions) ... ok
+test_problem_header_is_validated_before_replay (test_optimization_replay.ObstructionFormatTests.test_problem_header_is_validated_before_replay) ... ok
+test_replay_is_not_selector_search_or_exception_suppression (test_optimization_replay.ObstructionFormatTests.test_replay_is_not_selector_search_or_exception_suppression) ... ok
+test_budget_optimum_and_zero_budget (test_optimization_replay.OptimumReplayTests.test_budget_optimum_and_zero_budget) ... ok
+test_every_smaller_period_and_budget_are_bound (test_optimization_replay.OptimumReplayTests.test_every_smaller_period_and_budget_are_bound) ... ok
+test_feasible_target_cannot_change_scientific_skeleton (test_optimization_replay.OptimumReplayTests.test_feasible_target_cannot_change_scientific_skeleton) ... ok
+test_impossible_resources_and_truncated_negative_scope (test_optimization_replay.OptimumReplayTests.test_impossible_resources_and_truncated_negative_scope) ... ok
+test_malformed_proofs_and_cli_json (test_optimization_replay.OptimumReplayTests.test_malformed_proofs_and_cli_json) ... ok
+test_no_annotation_or_selector_search_in_replayer (test_optimization_replay.OptimumReplayTests.test_no_annotation_or_selector_search_in_replayer) ... ok
+test_bad_shape_fails_closed (test_semantics.SemanticsTests.test_bad_shape_fails_closed) ... ok
+test_catalogue_admission (test_semantics.SemanticsTests.test_catalogue_admission) ... ok
+test_false_activation_availability_regression (test_semantics.SemanticsTests.test_false_activation_availability_regression) ... ok
+test_false_mux_choice_requires_available_atoms (test_semantics.SemanticsTests.test_false_mux_choice_requires_available_atoms) ... ok
+test_false_retirement_choice_requires_available_atoms (test_semantics.SemanticsTests.test_false_retirement_choice_requires_available_atoms) ... ok
+test_lifted_faults_are_distinct_from_values (test_semantics.SemanticsTests.test_lifted_faults_are_distinct_from_values) ... ok
+test_memory_is_functional (test_semantics.SemanticsTests.test_memory_is_functional) ... ok
+test_negative_initial_indices_and_nonzero_initials (test_semantics.SemanticsTests.test_negative_initial_indices_and_nonzero_initials) ... ok
+test_opaque_identifier_regression (test_semantics.SemanticsTests.test_opaque_identifier_regression) ... ok
+test_precise_fault_prefix (test_semantics.SemanticsTests.test_precise_fault_prefix) ... ok
+test_predicate_bitsets (test_semantics.SemanticsTests.test_predicate_bitsets) ... ok
+test_retirement_reads_source_guards (test_semantics.SemanticsTests.test_retirement_reads_source_guards) ... ok
+test_same_stage_complements_are_exclusive (test_semantics.SemanticsTests.test_same_stage_complements_are_exclusive) ... ok
+test_scalar_division_signs (test_semantics.SemanticsTests.test_scalar_division_signs) ... ok
+test_shifted_complements_not_exclusive (test_semantics.SemanticsTests.test_shifted_complements_not_exclusive) ... ok
+test_unknown_fields_are_not_silently_ignored (test_semantics.SemanticsTests.test_unknown_fields_are_not_silently_ignored) ... ok
+test_wrong_path_fault_is_not_observable (test_semantics.SemanticsTests.test_wrong_path_fault_is_not_observable) ... ok
+test_zero_trip_and_drain (test_semantics.SemanticsTests.test_zero_trip_and_drain) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 10.457s
+
+OK

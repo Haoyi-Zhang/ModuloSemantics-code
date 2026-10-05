@@ -1,0 +1,1 @@
+{"action": "family", "output": "results/family-recurrence-one.json", "measurement": {"wall_seconds": 0.6086279659998581, "cpu_seconds": 0.6079752770000002, "peak_rss_kib": 94244, "workers": 1}}

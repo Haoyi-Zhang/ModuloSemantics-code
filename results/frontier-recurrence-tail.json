@@ -1,0 +1,97 @@
+{
+  "construction_failures": [],
+  "disagreements": 0,
+  "family": "recurrence-tail",
+  "initial_values": "two patterns: init=-2 or 1, add distance parity; tuple m=[init,1-init]",
+  "input_domains": {
+    "x": [
+      -1,
+      0,
+      1
+    ],
+    "y": [
+      0,
+      1
+    ]
+  },
+  "max_trip_count": 2,
+  "measurement": {
+    "cpu_seconds": 3.3152859149999996,
+    "peak_rss_kib": 96140,
+    "wall_seconds": 3.315846974999886,
+    "workers": 1
+  },
+  "rows": [
+    {
+      "input_cases": 2,
+      "trip_count": 0
+    },
+    {
+      "input_cases": 48,
+      "trip_count": 1
+    },
+    {
+      "input_cases": 1152,
+      "trip_count": 2
+    }
+  ],
+  "source_fault_inputs": 888,
+  "source_inputs": 1202,
+  "target_comparisons": 21636,
+  "variants": [
+    {
+      "bank_cells": 1,
+      "export_times": {
+        "s": 1
+      },
+      "ii": 1,
+      "retire": 10,
+      "variant": "wait-earliest"
+    },
+    {
+      "bank_cells": 1,
+      "export_times": {
+        "s": 1
+      },
+      "ii": 1,
+      "retire": 10,
+      "variant": "wait-latest"
+    },
+    {
+      "bank_cells": 1,
+      "export_times": {
+        "s": 1
+      },
+      "ii": 1,
+      "retire": 10,
+      "variant": "wait-hybrid"
+    },
+    {
+      "bank_cells": 1,
+      "export_times": {
+        "s": 1
+      },
+      "ii": 1,
+      "retire": 10,
+      "variant": "recover-earliest"
+    },
+    {
+      "bank_cells": 1,
+      "export_times": {
+        "s": 1
+      },
+      "ii": 1,
+      "retire": 10,
+      "variant": "recover-latest"
+    },
+    {
+      "bank_cells": 1,
+      "export_times": {
+        "s": 1
+      },
+      "ii": 1,
+      "retire": 10,
+      "variant": "recover-hybrid"
+    }
+  ]
+}

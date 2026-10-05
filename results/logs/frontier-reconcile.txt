@@ -1,0 +1,15 @@
+{
+  "reconciliation_only": true,
+  "unit_test_methods": 51,
+  "family_source_inputs": 10856,
+  "family_target_comparisons": 195408,
+  "all_new_target_comparisons": 212592,
+  "selector_queries": 17408,
+  "quality_vs_copied_selector": {
+    "smaller": 83,
+    "equal": 257,
+    "larger": 0
+  },
+  "observed_disagreements": 0,
+  "finite_checks_are_not_a_general_mechanized_proof": true
+}

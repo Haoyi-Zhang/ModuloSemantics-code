@@ -1,0 +1,87 @@
+{
+  "constructed_certificates": 8,
+  "coverage": "skew actual releases; four atoms; non-contiguous reservations; distance 64; 66 iterations",
+  "disagreements": 0,
+  "measurement": {
+    "cpu_seconds": 3.1726739250000002,
+    "peak_rss_kib": 96164,
+    "wall_seconds": 3.178312490000053,
+    "workers": 1
+  },
+  "metrics": {
+    "exports": 6000,
+    "exports_before_retirement": 3867,
+    "forward_reads": 4410,
+    "forward_reads_before_retirement": 3800
+  },
+  "rows": [
+    {
+      "cells": 1,
+      "distance": 1,
+      "ii": 1,
+      "input_cases": 36,
+      "mode": "wait",
+      "retire": 21
+    },
+    {
+      "cells": 1,
+      "distance": 1,
+      "ii": 8,
+      "input_cases": 36,
+      "mode": "recover",
+      "retire": 21
+    },
+    {
+      "cells": 1,
+      "distance": 3,
+      "ii": 1,
+      "input_cases": 36,
+      "mode": "wait",
+      "retire": 21
+    },
+    {
+      "cells": 3,
+      "distance": 3,
+      "ii": 3,
+      "input_cases": 36,
+      "mode": "recover",
+      "retire": 21
+    },
+    {
+      "cells": 4,
+      "distance": 17,
+      "ii": 1,
+      "input_cases": 36,
+      "mode": "wait",
+      "retire": 21
+    },
+    {
+      "cells": 8,
+      "distance": 17,
+      "ii": 1,
+      "input_cases": 36,
+      "mode": "recover",
+      "retire": 21
+    },
+    {
+      "cells": 51,
+      "distance": 64,
+      "ii": 1,
+      "input_cases": 36,
+      "mode": "wait",
+      "retire": 21
+    },
+    {
+      "cells": 51,
+      "distance": 64,
+      "ii": 1,
+      "input_cases": 36,
+      "mode": "recover",
+      "retire": 21
+    }
+  ],
+  "seed": 601027,
+  "source_inputs": 288,
+  "source_schemas": 4,
+  "target_comparisons": 864
+}

@@ -1,0 +1,364 @@
+{
+  "all_steps_passed": true,
+  "child_cpu_seconds": 253.565188,
+  "child_peak_rss_kib_so_far": 106152,
+  "completed_steps": [
+    {
+      "child_cpu_seconds": 12.370041,
+      "returncode": 0,
+      "step": "tests",
+      "timed_out": false,
+      "wall_seconds": 12.412910616999852
+    },
+    {
+      "child_cpu_seconds": 5.0002770000000005,
+      "returncode": 0,
+      "step": "pilot",
+      "timed_out": false,
+      "wall_seconds": 5.004772187999606
+    },
+    {
+      "child_cpu_seconds": 4.824376000000001,
+      "returncode": 0,
+      "step": "guarded-division",
+      "timed_out": false,
+      "wall_seconds": 4.825500249000015
+    },
+    {
+      "child_cpu_seconds": 6.842679999999998,
+      "returncode": 0,
+      "step": "fault-prefix",
+      "timed_out": false,
+      "wall_seconds": 6.853014748000078
+    },
+    {
+      "child_cpu_seconds": 2.835470000000001,
+      "returncode": 0,
+      "step": "memory-token",
+      "timed_out": false,
+      "wall_seconds": 2.8399591060001512
+    },
+    {
+      "child_cpu_seconds": 2.356105999999997,
+      "returncode": 0,
+      "step": "recurrence-one",
+      "timed_out": false,
+      "wall_seconds": 2.3575395190000563
+    },
+    {
+      "child_cpu_seconds": 7.899647000000002,
+      "returncode": 0,
+      "step": "recurrence-three",
+      "timed_out": false,
+      "wall_seconds": 7.930258420999962
+    },
+    {
+      "child_cpu_seconds": 4.636527000000001,
+      "returncode": 0,
+      "step": "complementary",
+      "timed_out": false,
+      "wall_seconds": 4.638791498000046
+    },
+    {
+      "child_cpu_seconds": 1.5068449999999984,
+      "returncode": 0,
+      "step": "two-predicates",
+      "timed_out": false,
+      "wall_seconds": 1.5079068640002333
+    },
+    {
+      "child_cpu_seconds": 1.7740190000000027,
+      "returncode": 0,
+      "step": "identity-boundary",
+      "timed_out": false,
+      "wall_seconds": 1.776401848000205
+    },
+    {
+      "child_cpu_seconds": 1.578877999999996,
+      "returncode": 0,
+      "step": "mutations",
+      "timed_out": false,
+      "wall_seconds": 1.5977551999999378
+    },
+    {
+      "child_cpu_seconds": 2.1752779999999987,
+      "returncode": 0,
+      "step": "resources",
+      "timed_out": false,
+      "wall_seconds": 2.180905787000029
+    },
+    {
+      "child_cpu_seconds": 11.017215,
+      "returncode": 0,
+      "step": "generated",
+      "timed_out": false,
+      "wall_seconds": 11.061115272999814
+    },
+    {
+      "child_cpu_seconds": 2.8047210000000007,
+      "returncode": 0,
+      "step": "certificate-oracle",
+      "timed_out": false,
+      "wall_seconds": 2.808645598000112
+    },
+    {
+      "child_cpu_seconds": 19.443318000000005,
+      "returncode": 0,
+      "step": "dominance",
+      "timed_out": false,
+      "wall_seconds": 19.446503210000174
+    },
+    {
+      "child_cpu_seconds": 2.5248269999999877,
+      "returncode": 0,
+      "step": "frontier-selectors",
+      "timed_out": false,
+      "wall_seconds": 2.525421241999993
+    },
+    {
+      "child_cpu_seconds": 1.471311,
+      "returncode": 0,
+      "step": "frontier-storage",
+      "timed_out": false,
+      "wall_seconds": 1.4729435270000977
+    },
+    {
+      "child_cpu_seconds": 7.619581000000011,
+      "returncode": 0,
+      "step": "frontier-quality",
+      "timed_out": false,
+      "wall_seconds": 7.635399431000224
+    },
+    {
+      "child_cpu_seconds": 4.6775519999999915,
+      "returncode": 0,
+      "step": "frontier-recurrence-tail",
+      "timed_out": false,
+      "wall_seconds": 4.677984476999882
+    },
+    {
+      "child_cpu_seconds": 17.61051300000001,
+      "returncode": 0,
+      "step": "frontier-guarded-feedback",
+      "timed_out": false,
+      "wall_seconds": 17.614557547000004
+    },
+    {
+      "child_cpu_seconds": 33.331777,
+      "returncode": 0,
+      "step": "frontier-cross-feedback",
+      "timed_out": false,
+      "wall_seconds": 33.34580778999998
+    },
+    {
+      "child_cpu_seconds": 9.849524999999971,
+      "returncode": 0,
+      "step": "frontier-functional-feedback",
+      "timed_out": false,
+      "wall_seconds": 9.854757479
+    },
+    {
+      "child_cpu_seconds": 1.5095360000000255,
+      "returncode": 0,
+      "step": "frontier-controls",
+      "timed_out": false,
+      "wall_seconds": 1.5156097720000616
+    },
+    {
+      "child_cpu_seconds": 3.270748999999995,
+      "returncode": 0,
+      "step": "frontier-inherited-0",
+      "timed_out": false,
+      "wall_seconds": 3.273118788999909
+    },
+    {
+      "child_cpu_seconds": 3.2463559999999916,
+      "returncode": 0,
+      "step": "frontier-inherited-1",
+      "timed_out": false,
+      "wall_seconds": 3.2498097459997553
+    },
+    {
+      "child_cpu_seconds": 3.382099000000011,
+      "returncode": 0,
+      "step": "frontier-inherited-2",
+      "timed_out": false,
+      "wall_seconds": 3.386563123000087
+    },
+    {
+      "child_cpu_seconds": 3.0032249999999863,
+      "returncode": 0,
+      "step": "frontier-inherited-3",
+      "timed_out": false,
+      "wall_seconds": 3.0060805510001956
+    },
+    {
+      "child_cpu_seconds": 2.646017999999998,
+      "returncode": 0,
+      "step": "frontier-inherited-4",
+      "timed_out": false,
+      "wall_seconds": 2.6485578580000038
+    },
+    {
+      "child_cpu_seconds": 3.861817000000002,
+      "returncode": 0,
+      "step": "frontier-inherited-5",
+      "timed_out": false,
+      "wall_seconds": 3.873089046000132
+    },
+    {
+      "child_cpu_seconds": 10.283446999999995,
+      "returncode": 0,
+      "step": "frontier-inherited-6",
+      "timed_out": false,
+      "wall_seconds": 10.31345492499986
+    },
+    {
+      "child_cpu_seconds": 4.001501000000019,
+      "returncode": 0,
+      "step": "frontier-inherited-7",
+      "timed_out": false,
+      "wall_seconds": 4.0287752200001705
+    },
+    {
+      "child_cpu_seconds": 1.5629810000000077,
+      "returncode": 0,
+      "step": "frontier-inherited",
+      "timed_out": false,
+      "wall_seconds": 1.5634581120002622
+    },
+    {
+      "child_cpu_seconds": 4.859706999999986,
+      "returncode": 0,
+      "step": "frontier-boundary",
+      "timed_out": false,
+      "wall_seconds": 4.867887498000073
+    },
+    {
+      "child_cpu_seconds": 4.384340000000009,
+      "returncode": 0,
+      "step": "frontier-designs",
+      "timed_out": false,
+      "wall_seconds": 4.399774313000307
+    },
+    {
+      "child_cpu_seconds": 17.847870999999998,
+      "returncode": 0,
+      "step": "frontier-scaling",
+      "timed_out": false,
+      "wall_seconds": 17.87883696300014
+    },
+    {
+      "child_cpu_seconds": 4.118465999999984,
+      "returncode": 0,
+      "step": "frontier-startup",
+      "timed_out": false,
+      "wall_seconds": 4.121031229999971
+    },
+    {
+      "child_cpu_seconds": 1.7223089999999956,
+      "returncode": 0,
+      "step": "frontier-hybrid-oracle",
+      "timed_out": false,
+      "wall_seconds": 1.7236728319999202
+    },
+    {
+      "child_cpu_seconds": 1.764598000000035,
+      "returncode": 0,
+      "step": "frontier-hybrid-designs",
+      "timed_out": false,
+      "wall_seconds": 1.7664212660001795
+    },
+    {
+      "child_cpu_seconds": 4.2266199999999685,
+      "returncode": 0,
+      "step": "replay-three-tickets",
+      "timed_out": false,
+      "wall_seconds": 4.228348065999853
+    },
+    {
+      "child_cpu_seconds": 1.8040850000000148,
+      "returncode": 0,
+      "step": "replay-small-oracle",
+      "timed_out": false,
+      "wall_seconds": 1.8080306789997849
+    },
+    {
+      "child_cpu_seconds": 6.862169999999992,
+      "returncode": 0,
+      "step": "replay-structured",
+      "timed_out": false,
+      "wall_seconds": 6.872361307000119
+    },
+    {
+      "child_cpu_seconds": 1.9137589999999989,
+      "returncode": 0,
+      "step": "reconcile",
+      "timed_out": false,
+      "wall_seconds": 1.9159765610002069
+    },
+    {
+      "child_cpu_seconds": 1.620429999999999,
+      "returncode": 0,
+      "step": "frontier-reconcile",
+      "timed_out": false,
+      "wall_seconds": 1.6230638870001712
+    },
+    {
+      "child_cpu_seconds": 1.5226200000000176,
+      "returncode": 0,
+      "step": "replay-reconcile",
+      "timed_out": false,
+      "wall_seconds": 1.5254727299998194
+    }
+  ],
+  "maximum_concurrent_children": 1,
+  "requested_steps": [
+    "tests",
+    "pilot",
+    "guarded-division",
+    "fault-prefix",
+    "memory-token",
+    "recurrence-one",
+    "recurrence-three",
+    "complementary",
+    "two-predicates",
+    "identity-boundary",
+    "mutations",
+    "resources",
+    "generated",
+    "certificate-oracle",
+    "dominance",
+    "frontier-selectors",
+    "frontier-storage",
+    "frontier-quality",
+    "frontier-recurrence-tail",
+    "frontier-guarded-feedback",
+    "frontier-cross-feedback",
+    "frontier-functional-feedback",
+    "frontier-controls",
+    "frontier-inherited-0",
+    "frontier-inherited-1",
+    "frontier-inherited-2",
+    "frontier-inherited-3",
+    "frontier-inherited-4",
+    "frontier-inherited-5",
+    "frontier-inherited-6",
+    "frontier-inherited-7",
+    "frontier-inherited",
+    "frontier-boundary",
+    "frontier-designs",
+    "frontier-scaling",
+    "frontier-startup",
+    "frontier-hybrid-oracle",
+    "frontier-hybrid-designs",
+    "replay-three-tickets",
+    "replay-small-oracle",
+    "replay-structured",
+    "reconcile",
+    "frontier-reconcile",
+    "replay-reconcile"
+  ],
+  "selected_batch_passed": true,
+  "wall_seconds": 254.00951950699982
+}

@@ -1,0 +1,390 @@
+{
+  "program": {
+    "actual": [
+      "p"
+    ],
+    "attempts": [
+      {
+        "args": [
+          {
+            "input": "x"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "op",
+        "name": "w_v0_op",
+        "node": "v0",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          "p"
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "copy",
+        "name": "w_v0_copy",
+        "node": "v0",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            "p"
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "w_v0_op",
+            "when": "p"
+          },
+          {
+            "attempt": "w_v0_copy",
+            "when": [
+              "not",
+              "p"
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "w_v0_join",
+        "node": "v0",
+        "offset": 9,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "attempt": "w_v0_join"
+          },
+          {
+            "constant": -1
+          }
+        ],
+        "kind": "op",
+        "name": "w_v1_op",
+        "node": "v1",
+        "offset": 10,
+        "when": [
+          "and",
+          true,
+          true
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "copy",
+        "name": "w_v1_copy",
+        "node": "v1",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            true
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "w_v1_op",
+            "when": true
+          },
+          {
+            "attempt": "w_v1_copy",
+            "when": [
+              "not",
+              true
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "w_v1_join",
+        "node": "v1",
+        "offset": 12,
+        "when": true
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "kind": "op",
+        "name": "w_v2_op",
+        "node": "v2",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          false
+        ]
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          }
+        ],
+        "kind": "copy",
+        "name": "w_v2_copy",
+        "node": "v2",
+        "offset": 8,
+        "when": [
+          "and",
+          true,
+          [
+            "not",
+            false
+          ]
+        ]
+      },
+      {
+        "choices": [
+          {
+            "attempt": "w_v2_op",
+            "when": false
+          },
+          {
+            "attempt": "w_v2_copy",
+            "when": [
+              "not",
+              false
+            ]
+          }
+        ],
+        "kind": "mux",
+        "name": "w_v2_join",
+        "node": "v2",
+        "offset": 9,
+        "when": true
+      }
+    ],
+    "costs": {
+      "add": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "copy": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "div": {
+        "latency": 5,
+        "reserve": [
+          0
+        ],
+        "resource": "div"
+      },
+      "id": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "load": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "mul": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      },
+      "mux": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "move"
+      },
+      "store": {
+        "latency": 2,
+        "reserve": [
+          0
+        ],
+        "resource": "mem"
+      },
+      "sub": {
+        "latency": 1,
+        "reserve": [
+          0
+        ],
+        "resource": "alu"
+      }
+    },
+    "exports": {},
+    "guard_ready": {
+      "h": 0,
+      "p": 8
+    },
+    "ii": 5,
+    "input_ready": {
+      "x": 0,
+      "y": 0
+    },
+    "inputs": [
+      "x",
+      "y"
+    ],
+    "nodes": [
+      {
+        "args": [
+          {
+            "input": "x"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "emit": false,
+        "fallback": {
+          "input": "y"
+        },
+        "guard": "p",
+        "name": "v0",
+        "op": "sub"
+      },
+      {
+        "args": [
+          {
+            "distance": 0,
+            "node": "v0"
+          },
+          {
+            "constant": -1
+          }
+        ],
+        "emit": false,
+        "fallback": {
+          "input": "x"
+        },
+        "guard": true,
+        "name": "v1",
+        "op": "mul"
+      },
+      {
+        "args": [
+          {
+            "input": "y"
+          },
+          {
+            "input": "x"
+          }
+        ],
+        "emit": true,
+        "fallback": {
+          "input": "y"
+        },
+        "guard": false,
+        "name": "v2",
+        "op": "sub"
+      }
+    ],
+    "predicted": [
+      "h"
+    ],
+    "resources": {
+      "alu": 1,
+      "div": 1,
+      "mem": 1,
+      "move": 2
+    },
+    "retire": 13,
+    "retirement": {
+      "v0": [
+        {
+          "attempt": "w_v0_join",
+          "when": true
+        }
+      ],
+      "v1": [
+        {
+          "attempt": "w_v1_join",
+          "when": true
+        }
+      ],
+      "v2": [
+        {
+          "attempt": "w_v2_join",
+          "when": true
+        }
+      ]
+    }
+  },
+  "source_case": "cases/generated/case-026.json",
+  "synthesis": {
+    "bank_layout": {},
+    "earliest": {},
+    "minimality": {},
+    "policy": "earliest",
+    "selected": {},
+    "timing_lower_bound": 1,
+    "tried": [
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 1
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 2
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 3
+      },
+      {
+        "accepted": false,
+        "codes": [
+          "resource_capacity"
+        ],
+        "ii": 4
+      },
+      {
+        "accepted": true,
+        "codes": [],
+        "ii": 5
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "checked_cells": 1166,
+  "disagreements": 0,
+  "measurement": {
+    "cpu_seconds": 2.539597914,
+    "peak_rss_kib": 97064,
+    "wall_seconds": 2.5392182069999762,
+    "workers": 1
+  },
+  "raw_rows": "results/frontier_startup_rows.csv",
+  "realized_capacity_violations": 664,
+  "scope": "Every non-resource certificate condition holds; peak is realized before first retirement."
+}

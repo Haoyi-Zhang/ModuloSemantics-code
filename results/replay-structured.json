@@ -1,0 +1,18 @@
+{
+  "budget_queries": 144,
+  "comparison": "Canonical optimizer; independent full enumeration is in replay-small-oracle.",
+  "disagreements": 0,
+  "exclusion_and_positive_rows": {
+    "budget": 126,
+    "feasible": 126,
+    "resource": 225,
+    "selector": 24
+  },
+  "independent_oracle": false,
+  "mutants_rejected": 540,
+  "negative_optima": 18,
+  "original_constructor_failures": 6,
+  "positive_optima": 126,
+  "raw_rows": "results/replay_structured_rows.csv",
+  "skeletons": 48
+}

@@ -1,0 +1,81 @@
+% Generated from executed artifact/results. Do not edit numerical values.
+
+\newcommand{\NewComparisons}{212,592}
+
+\newcommand{\TestMethods}{51}
+
+\newcommand{\ReproductionSteps}{44}
+
+\newcommand{\ReplayThreeQueries}{32,768}
+
+\newcommand{\ReplayObstructions}{28,279}
+
+\newcommand{\ReplayOracleQueries}{28}
+
+\newcommand{\ReplayGridQueries}{144}
+
+\newcommand{\ReplayPositive}{126}
+
+\newcommand{\ReplayNegative}{18}
+
+\newcommand{\ReplayMutants}{540}
+
+\newcommand{\ReplayTable}{\begin{tabular}{@{}lr@{}}\toprule
+Check & Instances \\
+\midrule
+Independent-oracle budget queries & 28 \\
+Structured budget queries & 144 \\
+Structured positive / negative optima & 126 / 18 \\
+Rejected structured proof mutants & 540 \\
+Three-ticket selector queries & 32,768 \\
+Replayed no-selector witnesses & 28,279 \\
+\bottomrule\end{tabular}}
+
+\newcommand{\CpuSeconds}{253.57}
+
+\newcommand{\PeakMiB}{103.66}
+
+\newcommand{\NewFamilyTable}{\begin{tabular}{@{}lrrr@{}}\toprule
+Family & Inputs & Fault inputs & Comparisons \\
+\midrule
+Recurrence and tail & 1,202 & 888 & 21,636 \\
+Guarded feedback & 3,770 & 1,548 & 67,860 \\
+Cross feedback & 3,770 & 0 & 67,860 \\
+Functional feedback & 2,114 & 1,568 & 38,052 \\
+\midrule
+Total & 10,856 & 4,004 & 195,408 \\
+\bottomrule\end{tabular}}
+
+\newcommand{\QualityTable}{\begin{tabular}{@{}lrrr@{}}\toprule
+Comparator & Smaller & Equal & Larger \\
+\midrule
+Retirement only & 253 & 87 & 0 \\
+Copied retirement selector & 83 & 257 & 0 \\
+\bottomrule\end{tabular}}
+
+\newcommand{\ScalingTable}{\begin{tabular}{@{}rrrr@{}}\toprule
+$b$ & $k=2$ & $k=8$ & $k=32$ \\
+\midrule
+0 & 0.013 & 0.049 & 0.154 \\
+2 & 0.077 & 0.193 & 0.360 \\
+4 & 0.165 & 0.232 & 0.353 \\
+6 & 0.517 & 0.565 & 0.992 \\
+8 & 2.008 & 2.394 & 3.116 \\
+10 & 7.888 & 4.607 & 6.435 \\
+\bottomrule\end{tabular}}
+
+\newcommand{\FamilyTable}{\begin{tabular}{@{}lrrrrr@{}}\toprule Family & Inputs & Comparisons & $I_R$ & $I_W$ & $C$ \\ \midrule
+\FamilyTableRows
+\bottomrule\end{tabular}}
+
+\newcommand{\ReplayWorkedTable}{\begin{tabular}{@{}rrrrl@{}}\toprule
+$I$ & $U_s$ & $L_s^\star$ & Lower bound & Proof row \\
+\midrule
+1 & 2 & 5 & 4 & Selector \\
+2 & 4 & 7 & 2 & Budget \\
+3 & 6 & 9 & 2 & Budget \\
+4 & 8 & 11 & 1 & Budget \\
+5 & 10 & 10 & 1 & Budget \\
+6 & 12 & 12 & 1 & Budget \\
+7 & -- & -- & 0 & Feasible \\
+\bottomrule\end{tabular}}

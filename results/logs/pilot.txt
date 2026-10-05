@@ -1,0 +1,1 @@
+{"action": "pilot", "output": "results/pilot.json", "measurement": {"wall_seconds": 4.1561211309999635, "cpu_seconds": 4.156158583, "peak_rss_kib": 94200, "workers": 1}}

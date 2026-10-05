@@ -53,7 +53,7 @@ def _shape(p: dict[str, Any]) -> None:
         raise FormatError('Certificate must be an object')
     required = {'actual', 'predicted', 'guard_ready', 'inputs', 'input_ready',
                 'nodes', 'costs', 'resources', 'ii', 'retire', 'attempts', 'retirement'}
-    if set(p) != required:
+    if set(p) not in (required, required | {'exports'}):
         raise FormatError('Missing or unknown top-level field')
     integer(p['ii'], 1, 256, 'initiation interval')
     integer(p['retire'], 0, 4096, 'retirement offset')
@@ -116,6 +116,15 @@ def _shape(p: dict[str, Any]) -> None:
         raise FormatError('Expected between 1 and 512 attempts')
     if not isinstance(p['retirement'], dict) or set(p['retirement']) != set(names):
         raise FormatError('Retirement must cover exactly the source nodes')
+    exports = p.get('exports', {})
+    if not isinstance(exports, dict) or not set(exports) <= set(names):
+        raise FormatError('exports must be an object indexed by source identities')
+    for name, entry in exports.items():
+        if not isinstance(entry, dict) or set(entry) != {'offset', 'choices'}:
+            raise FormatError('An export must contain exactly offset and choices')
+        integer(entry['offset'], 0, p['retire'], 'export offset')
+        if not isinstance(entry['choices'], list) or not 1 <= len(entry['choices']) <= 512:
+            raise FormatError('Empty or excessive export choices')
 
 
 def check(p: dict[str, Any]) -> Verdict:
@@ -154,6 +163,20 @@ def check(p: dict[str, Any]) -> Verdict:
                 issue('dependence_time', loc, use if end[parent] > t else 0,
                       parent=parent, ready=end[parent], use=t)
                 return good[parent]
+            if set(r) == {'forward', 'distance'}:
+                d = integer(r['distance'], 1, 64, 'forward distance')
+                parent = r['forward']
+                if not isinstance(parent, str) or parent not in p.get('exports', {}):
+                    raise FormatError('Forward reference requires a declared export')
+                identity = ('node', parent, d)
+                issue('identity', loc, use if identity != expected else 0,
+                      expected=expected, actual=identity)
+                rt = p['exports'][parent]['offset'] - d * p['ii']
+                issue('forward_time', loc, use if rt > t else 0,
+                      parent=parent, distance=d, ready=rt, use=t)
+                # This is justified by the separate export obligations below,
+                # not by trusting a supplied correctness assertion.
+                return allbits
             if set(r) == {'retired', 'distance'}:
                 d = integer(r['distance'], 1, 64, 'retired distance')
                 if r['retired'] not in nodes:
@@ -240,6 +263,22 @@ def check(p: dict[str, Any]) -> Verdict:
                 issue('retirement_time', 'retire:'+name,
                       mask if end[a] > p['retire'] else 0)
             issue('choice_coverage', 'retire:'+name, allbits & ~union)
+        for name, entry in p.get('exports', {}).items():
+            union, at, loc = 0, entry['offset'], 'export:' + name
+            for b in entry['choices']:
+                if (not isinstance(b, dict) or set(b) != {'when', 'attempt'}
+                        or not isinstance(b['attempt'], str) or b['attempt'] not in attempts):
+                    raise FormatError('Invalid export choice')
+                mask, parent = tt.bits(b['when']), b['attempt']
+                # Every selector is evaluated, including a false selector.
+                ready(b['when'], at, loc, allbits)
+                issue('choice_overlap', loc, union & mask)
+                union |= mask
+                issue('identity', loc, mask if attempts[parent]['node'] != name else 0)
+                issue('export_goodness', loc, mask & ~good[parent], selected=parent)
+                issue('export_time', loc, mask if end[parent] > at else 0,
+                      selected=parent, ready=end[parent], use=at)
+            issue('choice_coverage', loc, allbits & ~union)
         # Exact on the activation envelope: different stages at a fixed phase
         # belong to different logical iterations and have independent valuations.
         buckets: dict[tuple, dict[int, list[str]]] = defaultdict(lambda: defaultdict(list))

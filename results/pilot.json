@@ -21,9 +21,9 @@
     ]
   },
   "measurement": {
-    "cpu_seconds": 1.687888284,
-    "peak_rss_kib": 94124,
-    "wall_seconds": 1.6882475900001737,
+    "cpu_seconds": 4.156158583,
+    "peak_rss_kib": 94200,
+    "wall_seconds": 4.1561211309999635,
     "workers": 1
   },
   "mismatches": 0,

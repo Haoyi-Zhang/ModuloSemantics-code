@@ -1,0 +1,15 @@
+{
+  "bibtex_entries": 38,
+  "distinct_body_citations": 38,
+  "rendered_entries": 38,
+  "duplicate_doi": 0,
+  "unresolved_citation_keys": 0,
+  "uncited_bibtex_keys": 0,
+  "access_levels": {
+    "metadata_or_abstract": 20,
+    "technical_fulltext_passages": 17,
+    "author_presentation": 1
+  },
+  "whole_paper_calibration_complete": false,
+  "scope": "Internal source-key/field/render consistency. Reading scope and source provenance remain per record; no automatic network verification, whole-paper reading or exhaustive novelty claim."
+}

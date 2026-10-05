@@ -1,0 +1,1613 @@
+{
+  "admitted_periods_checked": 300,
+  "checks_at_or_beyond_cutoff": 168,
+  "design_spaces": [
+    {
+      "capacity": 1,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 8,
+        "mathematical_cutoff": 8,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 2
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 4
+            },
+            "fits_budget": true,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 7
+            },
+            "fits_budget": true,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": true,
+            "ii": 8
+          }
+        ]
+      },
+      "distance": 1,
+      "latency": 7
+    },
+    {
+      "capacity": 4,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 8,
+        "mathematical_cutoff": 8,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 2
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 4
+            },
+            "fits_budget": true,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 7
+            },
+            "fits_budget": true,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": true,
+            "ii": 8
+          }
+        ]
+      },
+      "distance": 1,
+      "latency": 7
+    },
+    {
+      "capacity": 1,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 16,
+        "mathematical_cutoff": 16,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 2
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 4
+            },
+            "fits_budget": true,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 7
+            },
+            "fits_budget": true,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": true,
+            "ii": 8
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 9
+            },
+            "fits_budget": true,
+            "ii": 9
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 10
+            },
+            "fits_budget": true,
+            "ii": 10
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 11
+            },
+            "fits_budget": true,
+            "ii": 11
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 12
+            },
+            "fits_budget": true,
+            "ii": 12
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 13
+            },
+            "fits_budget": true,
+            "ii": 13
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 14
+            },
+            "fits_budget": true,
+            "ii": 14
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 15
+            },
+            "fits_budget": true,
+            "ii": 15
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": true,
+            "ii": 16
+          }
+        ]
+      },
+      "distance": 1,
+      "latency": 15
+    },
+    {
+      "capacity": 4,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 16,
+        "mathematical_cutoff": 16,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 1
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 2
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 4
+            },
+            "fits_budget": true,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 7
+            },
+            "fits_budget": true,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": true,
+            "ii": 8
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 9
+            },
+            "fits_budget": true,
+            "ii": 9
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 10
+            },
+            "fits_budget": true,
+            "ii": 10
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 11
+            },
+            "fits_budget": true,
+            "ii": 11
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 12
+            },
+            "fits_budget": true,
+            "ii": 12
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 13
+            },
+            "fits_budget": true,
+            "ii": 13
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 14
+            },
+            "fits_budget": true,
+            "ii": 14
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 15
+            },
+            "fits_budget": true,
+            "ii": 15
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": true,
+            "ii": 16
+          }
+        ]
+      },
+      "distance": 1,
+      "latency": 15
+    },
+    {
+      "capacity": 1,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 8,
+        "mathematical_cutoff": 8,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 8
+          }
+        ]
+      },
+      "distance": 3,
+      "latency": 7
+    },
+    {
+      "capacity": 4,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 8,
+        "mathematical_cutoff": 8,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 8
+          }
+        ]
+      },
+      "distance": 3,
+      "latency": 7
+    },
+    {
+      "capacity": 1,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 16,
+        "mathematical_cutoff": 16,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 9
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 12
+            },
+            "fits_budget": true,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 15
+            },
+            "fits_budget": true,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": true,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": true,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 8
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 9
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 10
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 11
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 12
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 13
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 14
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 15
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 16
+          }
+        ]
+      },
+      "distance": 3,
+      "latency": 15
+    },
+    {
+      "capacity": 4,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 16,
+        "mathematical_cutoff": 16,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 3
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 6
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 9
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 12
+            },
+            "fits_budget": true,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 15
+            },
+            "fits_budget": true,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": true,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": true,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 8
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 9
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 10
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 11
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 12
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 13
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 14
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 15
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 16
+          }
+        ]
+      },
+      "distance": 3,
+      "latency": 15
+    },
+    {
+      "capacity": 1,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 8,
+        "mathematical_cutoff": 8,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 5,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 8
+          }
+        ]
+      },
+      "distance": 5,
+      "latency": 7
+    },
+    {
+      "capacity": 4,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 8,
+        "mathematical_cutoff": 8,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 5,
+            "export_times": {
+              "s": 8
+            },
+            "fits_budget": false,
+            "ii": 8
+          }
+        ]
+      },
+      "distance": 5,
+      "latency": 7
+    },
+    {
+      "capacity": 1,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 16,
+        "mathematical_cutoff": 16,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 10
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 15
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 8
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 9
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 10
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 11
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 12
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 13
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 14
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 15
+          },
+          {
+            "admitted": true,
+            "cells": 5,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 16
+          }
+        ]
+      },
+      "distance": 5,
+      "latency": 15
+    },
+    {
+      "capacity": 4,
+      "design_space": {
+        "cell_budget": 1,
+        "complete_for_unbounded_intervals": true,
+        "enumerated_through": 16,
+        "mathematical_cutoff": 16,
+        "minimum_budget_feasible_ii": 1,
+        "pareto": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          }
+        ],
+        "rows": [
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 5
+            },
+            "fits_budget": true,
+            "ii": 1
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 10
+            },
+            "fits_budget": true,
+            "ii": 2
+          },
+          {
+            "admitted": true,
+            "cells": 1,
+            "export_times": {
+              "s": 15
+            },
+            "fits_budget": true,
+            "ii": 3
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 4
+          },
+          {
+            "admitted": true,
+            "cells": 2,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 5
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 6
+          },
+          {
+            "admitted": true,
+            "cells": 3,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 7
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 8
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 9
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 10
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 11
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 12
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 13
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 14
+          },
+          {
+            "admitted": true,
+            "cells": 4,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 15
+          },
+          {
+            "admitted": true,
+            "cells": 5,
+            "export_times": {
+              "s": 16
+            },
+            "fits_budget": false,
+            "ii": 16
+          }
+        ]
+      },
+      "distance": 5,
+      "latency": 15
+    }
+  ],
+  "disagreements": 0,
+  "measurement": {
+    "cpu_seconds": 0.36389988100000004,
+    "peak_rss_kib": 96168,
+    "wall_seconds": 0.36525873300001876,
+    "workers": 1
+  },
+  "obstructions_replayed": 300,
+  "raw_rows": "results/frontier_design_rows.csv",
+  "skeletons": 12,
+  "tagged_bank_checks": 300
+}

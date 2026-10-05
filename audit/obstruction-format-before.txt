@@ -1,0 +1,6 @@
+{"releases": null, "exception": "TypeError", "message": "'NoneType' object is not subscriptable"}
+{"releases": ["p"], "exception": "TypeError", "message": "list indices must be integers or slices, not str"}
+{"releases": "p", "exception": "TypeError", "message": "string indices must be integers, not 'str'"}
+{"releases": {}, "exception": "KeyError", "message": "'p'"}
+{"releases": {"p": true}, "result": true}
+{"releases": {"p": 0}, "result": false}
