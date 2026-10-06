@@ -31,8 +31,8 @@ limits; that is a failed reproduction, not permission to lower coverage or
 claim a pass. Linux records peak resident memory in KiB; other systems may use
 a different unit for `ru_maxrss`, so the supplied resource interpretation is
 Linux-specific. The driver's requested affinity and address-space limit do not
-configure system swap; the original environment had no swap, and a new
-reproduction environment must satisfy that condition separately.
+configure system swap; the original environment had no swap. A new run must
+either use a no-swap host or enforce zero swap for its own process cgroup.
 
 For bounded batches in a tool environment, keep the extracted code unchanged
 and run the following serial commands. The first starts fresh; the others
@@ -288,12 +288,16 @@ counts and cases; it does not rerun the campaign. These regressions preserve
 actual witnesses, not a claim that the Python implementation is generally proved.
 
 The scientific-checks workflow runs from this standalone artifact repository's
-root on Ubuntu 24.04 for pushes to `main` or manual dispatch. It runs the full
+root in a pinned Python 3.12.14 Debian container on an Ubuntu 24.04 runner,
+for pushes to `main` or manual dispatch. The container allows one CPU and
+4 GiB memory, with zero swap; the workflow checks the effective cgroup limits
+before starting. It runs the full
 44-step POSIX schedule, including the current unit suite and all three
 reconciliation gates, under a 900-second whole-run wall limit and the driver's
 per-child limits. Logs, results and generated cases are uploaded even on failure.
-It requires a no-swap host as specified above; it does not alter system swap.
-Preparing the workflow is not evidence that it has run remotely.
+It does not alter host swap. Container correctness runs are separate from the
+original host-specific timing measurements. A workflow definition alone does
+not establish that its campaign has completed.
 
 `cases/generated/` contains all generated source schemas, admitted certificates,
 construction-failure candidates and exact sampled execution inputs. The fixed

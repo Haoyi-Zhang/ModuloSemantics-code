@@ -12,6 +12,9 @@ jobs:
   finite-science:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    container:
+      image: python:3.12.14-bookworm@sha256:dbbe4ceb97851e2e5fa83798b239811f871cb743b259ba3563737349f6bcfaa0
+      options: --cpus 1 --memory 4g --memory-swap 4g
     env:
       PYTHONUTF8: '1'
       PYTHONDONTWRITEBYTECODE: '1'
@@ -23,9 +26,6 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
-        with:
-          python-version: '3.12'
       - name: Run the complete serial finite campaign
         shell: bash
         run: |
@@ -36,9 +36,22 @@ jobs:
             python -B --version
             uname -a
             cat /proc/swaps
-            # Preserve the artifact's no-swap execution premise. Do not change
-            # the runner's global swap configuration to obtain a passing run.
-            awk 'NR > 1 { bad=1 } END { exit bad }' /proc/swaps
+            # /proc/swaps lists host devices even inside an isolated container.
+            # Check the process cgroup instead; no host settings are changed.
+            python -B - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          assert sys.version_info[:3] == (3, 12, 14)
+          group = Path('/sys/fs/cgroup')
+          limits = {name: (group / name).read_text().strip()
+                    for name in ('memory.max', 'memory.swap.max', 'cpu.max')}
+          assert limits['memory.max'] == str(4 * 1024**3), limits
+          assert limits['memory.swap.max'] == '0', limits
+          quota, period = map(int, limits['cpu.max'].split())
+          assert quota == period > 0, limits
+          print(json.dumps({'process_cgroup_limits': limits}, sort_keys=True))
+          PY
             # Parent and descendants inherit these bounds; each research child
             # additionally receives the existing 3.5 GiB / 40-44 CPU-s limits.
             ulimit -v 4194304
