@@ -1,0 +1,1 @@
+{"action": "resources", "output": "results/resources.json", "measurement": {"wall_seconds": 0.580883022000009, "cpu_seconds": 0.580883861, "peak_rss_kib": 21080, "workers": 1}}

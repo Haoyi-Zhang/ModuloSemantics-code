@@ -1,0 +1,16 @@
+{
+  "disagreements": 0,
+  "earliest_time_queries": 4096,
+  "global_ticket_false_rejections": 2030,
+  "measurement": {
+    "cpu_seconds": 0.5175318529999999,
+    "peak_rss_kib": 24784,
+    "wall_seconds": 0.5177222270000073,
+    "workers": 1
+  },
+  "pointwise_false_admissions": 570,
+  "raw_rows": "results/frontier_selector_rows.csv",
+  "three_atom_queries": 1024,
+  "three_atom_seed": 407183,
+  "two_atom_queries": 16384
+}

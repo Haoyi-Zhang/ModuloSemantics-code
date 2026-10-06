@@ -1,0 +1,54 @@
+{
+  "boolean_atoms": 4,
+  "cases": 433,
+  "family": "two-predicates",
+  "initial_values": "zero at every negative index",
+  "input_domains": {
+    "x": [
+      -1,
+      0,
+      1
+    ],
+    "y": [
+      -1,
+      0,
+      1
+    ],
+    "z": [
+      -1,
+      0,
+      1
+    ]
+  },
+  "measurement": {
+    "cpu_seconds": 0.067995276,
+    "peak_rss_kib": 20652,
+    "wall_seconds": 0.0682321820000027,
+    "workers": 1
+  },
+  "mismatches": 0,
+  "recover_attempts": 12,
+  "recover_ii": 2,
+  "recover_retire": 9,
+  "rows": [
+    {
+      "input_cases": 1,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 2,
+      "trip_count": 0
+    },
+    {
+      "input_cases": 432,
+      "mismatches": 0,
+      "source_fault_cases": 36,
+      "target_comparisons": 864,
+      "trip_count": 1
+    }
+  ],
+  "source_nodes": 2,
+  "target_comparisons": 866,
+  "wait_attempts": 6,
+  "wait_ii": 1,
+  "wait_retire": 9
+}

@@ -1,0 +1,66 @@
+{
+  "boolean_atoms": 2,
+  "cases": 4161,
+  "family": "memory-token",
+  "initial_values": "zero at every negative index",
+  "input_domains": {
+    "heap": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "k": [
+      -1,
+      0,
+      1,
+      2
+    ],
+    "x": [
+      0,
+      1
+    ]
+  },
+  "measurement": {
+    "cpu_seconds": 0.772879328,
+    "peak_rss_kib": 20552,
+    "wall_seconds": 0.7730031230000094,
+    "workers": 1
+  },
+  "mismatches": 0,
+  "recover_attempts": 12,
+  "recover_ii": 2,
+  "recover_retire": 9,
+  "rows": [
+    {
+      "input_cases": 1,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 2,
+      "trip_count": 0
+    },
+    {
+      "input_cases": 64,
+      "mismatches": 0,
+      "source_fault_cases": 32,
+      "target_comparisons": 128,
+      "trip_count": 1
+    },
+    {
+      "input_cases": 4096,
+      "mismatches": 0,
+      "source_fault_cases": 3072,
+      "target_comparisons": 8192,
+      "trip_count": 2
+    }
+  ],
+  "source_nodes": 2,
+  "target_comparisons": 8322,
+  "wait_attempts": 6,
+  "wait_ii": 1,
+  "wait_retire": 9
+}

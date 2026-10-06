@@ -1,0 +1,15 @@
+{
+  "annotation_assignments": 512,
+  "disagreements": 0,
+  "export_time_tuples": 13346,
+  "measurement": {
+    "cpu_seconds": 0.173071484,
+    "peak_rss_kib": 21056,
+    "wall_seconds": 0.17341177099999072,
+    "workers": 1
+  },
+  "period_queries": 32,
+  "raw_rows": "results/frontier_hybrid_oracle_rows.csv",
+  "skeletons": 4,
+  "target_comparisons": 768
+}

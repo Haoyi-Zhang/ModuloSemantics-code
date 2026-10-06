@@ -1,0 +1,1 @@
+{"disagreements": 0, "labelled_instances": 1820, "measurement": {"cpu_seconds": 0.015719551, "peak_rss_kib": 20936, "wall_seconds": 0.015520276999978933, "workers": 1}, "raw_rows": "results/frontier_storage_rows.csv", "undersized_counterexamples": 1352}

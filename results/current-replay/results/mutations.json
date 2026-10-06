@@ -1,0 +1,81 @@
+{
+  "algebraic_incompleteness_cases": 144,
+  "certificate_mutants": 7,
+  "measurement": {
+    "cpu_seconds": 0.029657463999999994,
+    "peak_rss_kib": 20472,
+    "wall_seconds": 0.029620860999997944,
+    "workers": 1
+  },
+  "rejected": 7,
+  "runtime_contract_controls": 2,
+  "runtime_controls_discriminated": 2,
+  "witnesses": [
+    {
+      "codes": [
+        "retirement_goodness"
+      ],
+      "name": "omitted-recovery",
+      "rejected": true,
+      "target_status": "done",
+      "witness_trip_count": 1
+    },
+    {
+      "codes": [
+        "identity"
+      ],
+      "name": "wrong-source-value",
+      "rejected": true,
+      "target_status": "done",
+      "witness_trip_count": 1
+    },
+    {
+      "codes": [
+        "guard_availability",
+        "producer_activation"
+      ],
+      "name": "unavailable-guard",
+      "rejected": true,
+      "target_status": "stuck",
+      "witness_trip_count": 1
+    },
+    {
+      "codes": [
+        "dependence_time"
+      ],
+      "name": "early-consumer",
+      "rejected": true,
+      "target_status": "stuck",
+      "witness_trip_count": 1
+    },
+    {
+      "codes": [
+        "choice_coverage"
+      ],
+      "name": "missing-retirement-arm",
+      "rejected": true,
+      "target_status": "stuck",
+      "witness_trip_count": 1
+    },
+    {
+      "codes": [
+        "guard_availability",
+        "retirement_time"
+      ],
+      "name": "early-retirement",
+      "rejected": true,
+      "target_status": "stuck",
+      "witness_trip_count": 1
+    },
+    {
+      "codes": [
+        "dependence_time",
+        "identity"
+      ],
+      "name": "wrong-iteration-distance",
+      "rejected": true,
+      "target_status": "stuck",
+      "witness_trip_count": 3
+    }
+  ]
+}

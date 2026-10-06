@@ -1,0 +1,65 @@
+{
+  "boolean_atoms": 2,
+  "cases": 22621,
+  "family": "recurrence-three",
+  "initial_values": "zero at every negative index",
+  "input_domains": {
+    "x": [
+      -1,
+      0,
+      1
+    ]
+  },
+  "measurement": {
+    "cpu_seconds": 4.319108274,
+    "peak_rss_kib": 20704,
+    "wall_seconds": 4.320155823999997,
+    "workers": 1
+  },
+  "mismatches": 0,
+  "recover_attempts": 6,
+  "recover_ii": 2,
+  "recover_retire": 5,
+  "rows": [
+    {
+      "input_cases": 1,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 2,
+      "trip_count": 0
+    },
+    {
+      "input_cases": 12,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 24,
+      "trip_count": 1
+    },
+    {
+      "input_cases": 144,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 288,
+      "trip_count": 2
+    },
+    {
+      "input_cases": 1728,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 3456,
+      "trip_count": 3
+    },
+    {
+      "input_cases": 20736,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 41472,
+      "trip_count": 4
+    }
+  ],
+  "source_nodes": 1,
+  "target_comparisons": 45242,
+  "wait_attempts": 3,
+  "wait_ii": 1,
+  "wait_retire": 5
+}

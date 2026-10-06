@@ -1,0 +1,72 @@
+{
+  "boolean_atoms": 2,
+  "cases": 11773,
+  "family": "guarded-division",
+  "initial_values": "zero at every negative index",
+  "input_domains": {
+    "x": [
+      -1,
+      0,
+      1
+    ],
+    "y": [
+      -1,
+      0,
+      1
+    ],
+    "z": [
+      -1,
+      0,
+      1
+    ]
+  },
+  "measurement": {
+    "cpu_seconds": 2.260568758,
+    "peak_rss_kib": 20584,
+    "wall_seconds": 2.2607472880000046,
+    "workers": 1
+  },
+  "mismatches": 0,
+  "negative_control": {
+    "name": "omitted-recovery",
+    "rejected": true,
+    "trace_differs": true
+  },
+  "recover_attempts": 12,
+  "recover_ii": 2,
+  "recover_retire": 9,
+  "resource_oracle": {
+    "assignments": 1024,
+    "disagreements": 0,
+    "phase_resource_cells": 6,
+    "trip_count": 5
+  },
+  "rows": [
+    {
+      "input_cases": 1,
+      "mismatches": 0,
+      "source_fault_cases": 0,
+      "target_comparisons": 2,
+      "trip_count": 0
+    },
+    {
+      "input_cases": 108,
+      "mismatches": 0,
+      "source_fault_cases": 18,
+      "target_comparisons": 216,
+      "trip_count": 1
+    },
+    {
+      "input_cases": 11664,
+      "mismatches": 0,
+      "source_fault_cases": 3564,
+      "target_comparisons": 23328,
+      "trip_count": 2
+    }
+  ],
+  "source_nodes": 2,
+  "target_comparisons": 23546,
+  "wait_attempts": 6,
+  "wait_ii": 1,
+  "wait_retire": 9
+}

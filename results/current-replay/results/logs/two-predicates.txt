@@ -1,0 +1,1 @@
+{"action": "family", "output": "results/family-two-predicates.json", "measurement": {"wall_seconds": 0.0682321820000027, "cpu_seconds": 0.067995276, "peak_rss_kib": 20652, "workers": 1}}

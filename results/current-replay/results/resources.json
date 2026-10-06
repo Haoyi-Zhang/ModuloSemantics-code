@@ -1,0 +1,29 @@
+{
+  "component_instances": 1728,
+  "global_guard_assignments": 90720,
+  "measurement": {
+    "cpu_seconds": 0.580883861,
+    "peak_rss_kib": 21080,
+    "wall_seconds": 0.580883022000009,
+    "workers": 1
+  },
+  "mismatches": 0,
+  "naive_underestimated_cells": 72,
+  "phase_resource_cells": 2376,
+  "predicate_order": [
+    false,
+    true,
+    "p",
+    [
+      "not",
+      "p"
+    ],
+    "q",
+    [
+      "not",
+      "q"
+    ]
+  ],
+  "raw_rows": "results/resource_rows.csv",
+  "unconditional_overestimated_cells": 594
+}

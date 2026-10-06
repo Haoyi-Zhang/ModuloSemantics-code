@@ -1,0 +1,1 @@
+{"action": "family", "output": "results/family-guarded-division.json", "measurement": {"wall_seconds": 2.1794170610000094, "cpu_seconds": 2.1777241370000002, "peak_rss_kib": 20548, "workers": 1}}

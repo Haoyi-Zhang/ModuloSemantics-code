@@ -1,0 +1,1 @@
+{"action": "generated", "output": "results/generated.json", "measurement": {"wall_seconds": 4.495058970999992, "cpu_seconds": 4.494108251, "peak_rss_kib": 21712, "workers": 1}}

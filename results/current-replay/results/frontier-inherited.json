@@ -1,0 +1,19 @@
+{
+  "admitted_constructions": 216,
+  "attempted_constructions": 384,
+  "bounded_parts": 8,
+  "disagreements": 0,
+  "failed_constructions": 168,
+  "measurement": {
+    "cpu_seconds": 0.0027285570000000203,
+    "peak_rss_kib": 21156,
+    "wall_seconds": 0.0025114799999812476,
+    "workers": 1
+  },
+  "not_a_holdout": "All 96 sources were part of the inherited development corpus.",
+  "raw_rows": "results/frontier_inherited_rows.csv",
+  "source_fault_inputs": 386,
+  "source_inputs": 2304,
+  "source_schemas": 96,
+  "target_comparisons": 15552
+}

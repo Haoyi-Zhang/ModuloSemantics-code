@@ -299,6 +299,29 @@ It does not alter host swap. Container correctness runs are separate from the
 original host-specific timing measurements. A workflow definition alone does
 not establish that its campaign has completed.
 
+The subsequent successful native run `37477159823` at head
+`507b2a6f8e343282c7209fca8daf188aa6d5f3d8`, artifact `11418984752`, completed
+all 44 stages with zero exits and no timeout, and passed all 52 unit methods.
+Its log records Python 3.12.14, one CPU, 4 GiB memory and zero process swap
+allowance. `results/current-replay/` retains exactly 1,524 ordinary-data/log
+files, copied as unchanged archive-member bytes with the native `cases/`,
+`results/` and `scientific-output/` hierarchy. All 1,409 frozen cases agree
+byte-for-byte with the candidate; certificates and all non-timing result fields
+agree with historical and prior private evidence, including 135,200 original
+and 212,592 extended execution comparisons without disagreement. This is finite
+implementation corroboration, not general hand-proof verification or a new
+performance benchmark. The separate Windows identifier campaign is not an
+additional native stage.
+
+Four carried historical files (`campaign_accounting.json`,
+`f1-format-validation.json`, `pilot_intake.json`, `resource_intake.json`) are
+not relabelled as native results and are not copied into `current-replay`.
+Their originals, earlier failed-run logs, 51-method POSIX history, original
+228.01 CPU seconds, 103.67 MiB peak RSS and scaling samples remain intact.
+Native telemetry is retained separately and does not replace those measurements.
+No archive member or scientific code was executed during data verification or
+retention. The original `results/` remains the source for historical paper tables.
+
 `cases/generated/` contains all generated source schemas, admitted certificates,
 construction-failure candidates and exact sampled execution inputs. The fixed
 seed is 72913; each schema has 24 cases with trip counts 0--12 and integer

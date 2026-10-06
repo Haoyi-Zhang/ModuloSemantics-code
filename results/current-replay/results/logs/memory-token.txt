@@ -1,0 +1,1 @@
+{"action": "family", "output": "results/family-memory-token.json", "measurement": {"wall_seconds": 0.7730031230000094, "cpu_seconds": 0.772879328, "peak_rss_kib": 20552, "workers": 1}}
