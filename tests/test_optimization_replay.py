@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 from semantic_certificates.builders import instruction, make_program, build, inp, node
 from semantic_certificates.checker import check
-from semantic_certificates.frontiers import Candidate, selection_at, obstruction_at, verify_obstruction, hybrid_design_space
+from semantic_certificates.frontiers import Candidate, selection_at, obstruction_at, verify_obstruction, hybrid_at, hybrid_design_space
 from semantic_certificates.logic import TruthTable, FormatError
 from semantic_certificates.optimization_replay import verify_optimum
 from semantic_certificates.optimization_witness import certify_budget
@@ -59,6 +59,29 @@ class ObstructionFormatTests(unittest.TestCase):
 
 
 class OptimumReplayTests(unittest.TestCase):
+    def test_opaque_attempt_names_survive_synthesis_and_replay(self):
+        # A valid source label at the Boolean-name bound produces longer opaque
+        # attempt names. Admission must not add a second, undocumented bound.
+        label = 's' * 64
+        base = build(make_program([
+            instruction(label, 'add', [node(label, 1), inp('x')], True, emit=True),
+            instruction('tail', 'div', [inp('z'), inp('y')], True, emit=True)],
+            release=0, div_latency=6, capacity=4), 'wait')
+        self.assertTrue(check(base).accepted)
+        self.assertGreater(max(len(a['name']) for a in base['attempts']), 64)
+        target, plan = hybrid_at(base, 1)
+        self.assertTrue(check(target).accepted)
+        self.assertEqual(plan['cells'], 1)
+        proof = certify_budget(base, 1)
+        replay = verify_optimum(base, 1, proof)
+        self.assertTrue(replay['accepted'], replay)
+        self.assertEqual(replay['minimum_period'], 1)
+        tt = TruthTable([])
+        candidates = [Candidate('ticket' * 12, 2, tt.all)]
+        self.assertIsNotNone(selection_at(tt, {}, candidates, 2))
+        witness = obstruction_at(tt, {}, candidates, 1)
+        self.assertTrue(verify_obstruction(tt, {}, candidates, witness))
+
     def test_budget_optimum_and_zero_budget(self):
         base = example()
         for budget in (0, 1, 2, 5):

@@ -172,8 +172,14 @@ implementation separations are described above. The original two interpreter pat
 and the new direct-clock path are not three unrelated real compiler back ends.
 
 The 44-step reproduction reruns the original campaign, export/annotation checks
-and optimum-proof replay. The suite has 51 methods: the original unchanged 21,
-the existing 21 frontier methods and nine new replay/format methods.
+and optimum-proof replay. The retained POSIX campaign used 51 test methods:
+the original unchanged 21, 21 frontier methods and nine replay/format methods.
+The current suite has 52 methods, adding a regression for opaque attempt names
+longer than 64 characters. Such names arise from builder prefixes even with a
+64-character source label; they must not invalidate an otherwise admitted
+skeleton, its selector, or its optimum proof. The 52-method suite and the finite
+experiment functions were rerun locally on Windows. Those checks do not rerun
+the POSIX resource-limit wrapper or replace the retained Linux measurements.
 New evidence includes 17,408 fixed-time selector queries, 4,096 earliest-time
 queries, 1,820 labelled storage cases, and 32 complete small annotation queries
 with 512 assignments and 13,346 export-time vectors. Four concrete feedback
@@ -272,13 +278,22 @@ original 18 focused checks, including two retained implementation regressions.
 `tests/test_format_validation.py` adds three API/CLI methods for the F1 format
 boundary: same-name arrays, strings, `null`, exact availability keys, strict
 integer releases, and the normal object case. Those unchanged 18 semantic and
-three format methods are included in the current 51-method suite; its actual
-output is `results/unit-tests.txt`. The earlier direct format probes remain in
+three format methods are included in the current 52-method suite. The retained
+`results/unit-tests.txt` records the earlier 51-method POSIX run; a fresh full
+reproduction regenerates it with the current suite. The earlier direct format probes remain in
 `results/f1-format-validation.json` and are not relabelled as a regenerated task.
 The current 44-step driver reruns the inherited scientific campaign and both
 extensions. In contrast, running `verify_results.py` alone only reconciles stored
 counts and cases; it does not rerun the campaign. These regressions preserve
 actual witnesses, not a claim that the Python implementation is generally proved.
+
+The scientific-checks workflow runs from this standalone artifact repository's
+root on Ubuntu 24.04 for pushes to `main` or manual dispatch. It runs the full
+44-step POSIX schedule, including the current unit suite and all three
+reconciliation gates, under a 900-second whole-run wall limit and the driver's
+per-child limits. Logs, results and generated cases are uploaded even on failure.
+It requires a no-swap host as specified above; it does not alter system swap.
+Preparing the workflow is not evidence that it has run remotely.
 
 `cases/generated/` contains all generated source schemas, admitted certificates,
 construction-failure candidates and exact sampled execution inputs. The fixed

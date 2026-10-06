@@ -79,8 +79,11 @@ def _validate_selection_problem(tt: TruthTable, releases: dict[str, int],
         raise FormatError('Expected at most 512 selector candidates')
     names = set()
     for c in candidates:
+        # Attempt names are opaque identifiers. Unlike Boolean atoms, the
+        # certificate checker does not cap their length; builder prefixes can
+        # legitimately make them longer than a 64-character source label.
         if (not isinstance(c, Candidate) or not isinstance(c.name, str)
-                or not c.name or len(c.name) > 64 or c.name in names):
+                or not c.name or c.name in names):
             raise FormatError('Invalid or duplicate selector candidate')
         integer(c.ready, 0, 8192, 'candidate completion')
         if type(c.good) is not int or c.good < 0 or c.good & ~tt.all:
