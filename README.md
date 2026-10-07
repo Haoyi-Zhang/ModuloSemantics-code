@@ -165,6 +165,19 @@ certificate. `hybrid_design_space` enumerates the proved finite period domain,
 reports its Pareto set, and flags truncation when retirement exceeds the
 representation's maximum period 256.
 
+Each design-space call now prepares fixed-skeleton checker goodness, candidate
+completion groups and attempt activity once, using call-local immutable groups.
+This does not cache period admission: each annotated target still receives the
+full checker, with resource reservations, selector deadlines and tie ordering
+unchanged. The single-period public functions still validate fresh input.
+`tests/test_frontier_preparation.py` adds three finite regressions, including a
+separate exhaustive annotation/export-time definition, first-fault observations,
+nonmonotone resource admission, inactive uses, caller mutation and the 256 cap.
+They run in the existing reproduction `tests` step through ordinary discovery:
+`python -B -m unittest discover -s tests -v` (55 current methods). No timing gain
+is claimed; the frozen measurements and completed native receipts below concern
+the original sources before this call-local preparation change.
+
 `frontier_oracle.py` contains separately expressed whole-decision-table,
 tagged-lifetime, complete-annotation and direct-clock checks. It imports neither
 the production checker/target/frontier module nor their model classes. The
@@ -174,10 +187,10 @@ and the new direct-clock path are not three unrelated real compiler back ends.
 The 44-step reproduction reruns the original campaign, export/annotation checks
 and optimum-proof replay. The retained POSIX campaign used 51 test methods:
 the original unchanged 21, 21 frontier methods and nine replay/format methods.
-The current suite has 52 methods, adding a regression for opaque attempt names
+The pre-preparation suite has 52 methods, adding a regression for opaque attempt names
 longer than 64 characters. Such names arise from builder prefixes even with a
 64-character source label; they must not invalidate an otherwise admitted
-skeleton, its selector, or its optimum proof. The 52-method suite and the finite
+skeleton, its selector, or its optimum proof. That 52-method suite and the finite
 experiment functions were rerun locally on Windows. Those checks do not rerun
 the POSIX resource-limit wrapper or replace the retained Linux measurements.
 New evidence includes 17,408 fixed-time selector queries, 4,096 earliest-time
@@ -278,7 +291,7 @@ original 18 focused checks, including two retained implementation regressions.
 `tests/test_format_validation.py` adds three API/CLI methods for the F1 format
 boundary: same-name arrays, strings, `null`, exact availability keys, strict
 integer releases, and the normal object case. Those unchanged 18 semantic and
-three format methods are included in the current 52-method suite. The retained
+three format methods are included in the pre-preparation 52-method suite. The retained
 `results/unit-tests.txt` records the earlier 51-method POSIX run; a fresh full
 reproduction regenerates it with the current suite. The earlier direct format probes remain in
 `results/f1-format-validation.json` and are not relabelled as a regenerated task.

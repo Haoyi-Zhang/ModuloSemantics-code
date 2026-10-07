@@ -8,7 +8,8 @@ from __future__ import annotations
 from collections import defaultdict
 from copy import deepcopy
 from dataclasses import dataclass
-from typing import Any
+from types import MappingProxyType
+from typing import Any, Mapping
 from .checker import check, integer
 from .logic import TruthTable, FormatError
 
@@ -226,6 +227,20 @@ def _candidate_sets(p: dict) -> tuple[TruthTable, dict[str, list[Candidate]]]:
     return tt, groups
 
 
+@dataclass(frozen=True)
+class _PreparedSkeleton:
+    table: TruthTable
+    groups: Mapping[str, tuple[Candidate, ...]]
+    active: tuple[bool, ...]
+
+
+def _prepare_skeleton(p: dict) -> _PreparedSkeleton:
+    """Fresh call-local fixed facts, never a cache of a target admission verdict."""
+    tt, groups = _candidate_sets(p)
+    frozen = MappingProxyType({v['name']: tuple(groups[v['name']]) for v in p['nodes']})
+    return _PreparedSkeleton(tt, frozen, tuple(bool(tt.bits(a['when'])) for a in p['attempts']))
+
+
 def forwarding_uses(p: dict) -> dict[str, list[dict[str, int | str]]]:
     """Satisfiable uses; fields on permanently inactive attempts do not count."""
     tt = TruthTable(p['actual'] + p['predicted'])
@@ -288,13 +303,18 @@ def synthesize(p: dict, *, policy: str = 'earliest',
     sufficient uniform labelled-ring size among feasible export times at I.
     We enumerate I rather than assuming resource feasibility is monotone.
     """
+    return _synthesize(p, policy=policy, interval=interval)
+
+
+def _synthesize(p: dict, *, policy: str = 'earliest', interval: int | None = None,
+                prepared: _PreparedSkeleton | None = None) -> tuple[dict, dict]:
     if policy not in ('earliest', 'latest'):
         raise ValueError('policy must be earliest or latest')
     if p.get('exports'):
         raise ValueError('Expected a baseline skeleton without existing exports')
     if interval is not None:
         integer(interval, 1, 256, 'requested interval')
-    tt, groups = _candidate_sets(p)
+    tt, groups = (_candidate_sets(p) if prepared is None else (prepared.table, prepared.groups))
     q = deepcopy(p)
     needed = sorted({r['retired'] for a in p['attempts'] for r in a.get('args', []) if 'retired' in r})
     earliest = {v: earliest_selection(tt, p['guard_ready'], groups[v], p['retire']) for v in needed}
@@ -357,12 +377,12 @@ def design_space(p: dict, *, cell_budget: int | None = None) -> dict:
     if cell_budget is not None:
         integer(cell_budget, 0, 4096, 'forwarding cell budget')
     # Fail malformed/non-recurrence skeletons explicitly before enumeration.
-    _candidate_sets(p)
+    prepared = _prepare_skeleton(p)
     cutoff = max(1, p['retire'])
     rows = []
     for ii in range(1, min(cutoff, 256)+1):
         try:
-            q, meta = synthesize(p, policy='latest', interval=ii)
+            q, meta = _synthesize(p, policy='latest', interval=ii, prepared=prepared)
         except NoFrontier as ex:
             rows.append({'ii': ii, 'admitted': False, 'reason': str(ex)})
             continue
@@ -424,15 +444,20 @@ def hybrid_at(p: dict, interval: int) -> tuple[dict, dict]:
     This is exact for this fixed skeleton and certificate language, not for all
     equivalent programs, storage coalescing schemes, or dynamic controllers.
     """
+    return _hybrid_at(p, interval)
+
+
+def _hybrid_at(p: dict, interval: int,
+               prepared: _PreparedSkeleton | None = None) -> tuple[dict, dict]:
     integer(interval, 1, 256, 'requested interval')
     if p.get('exports'):
         raise ValueError('Expected an unannotated retirement-only skeleton')
-    tt, groups = _candidate_sets(p)
+    tt, groups = (_candidate_sets(p) if prepared is None else (prepared.table, prepared.groups))
     q = deepcopy(p); q['ii'] = interval; q['exports'] = {}
     mandatory: dict[str, list[dict]] = defaultdict(list)
     optional_count = 0
-    for a in q['attempts']:
-        active = bool(tt.bits(a['when']))
+    for position, a in enumerate(q['attempts']):
+        active = bool(tt.bits(a['when'])) if prepared is None else prepared.active[position]
         for index, r in enumerate(a.get('args', [])):
             if 'retired' not in r:
                 continue
@@ -472,11 +497,11 @@ def hybrid_design_space(p: dict, *, cell_budget: int | None = None) -> dict:
     """
     if cell_budget is not None:
         integer(cell_budget, 0, 4096, 'forwarding cell budget')
-    _candidate_sets(p)
+    prepared = _prepare_skeleton(p)
     cutoff = max(1, p['retire']); rows = []
     for ii in range(1, min(cutoff, 256)+1):
         try:
-            _, meta = hybrid_at(p, ii)
+            _, meta = _hybrid_at(p, ii, prepared=prepared)
         except NoFrontier as ex:
             rows.append({'ii':ii, 'admitted':False, 'reason':str(ex)})
             continue
