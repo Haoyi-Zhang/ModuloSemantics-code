@@ -27,6 +27,11 @@ No model is trained. Seeds separate reproducible input streams, not human studie
    the unchanged sequential interpreter against the heap-event, direct-clock and
    tagged-bank executions for earliest and latest exports, on both waiting and
    full-replay skeletons. Publish failures, construction rejections and all counts.
+   The retained execution covers trip counts 0..2 for recurrence-tail,
+   0..3 for guarded-feedback and cross-feedback, and 0..2 for functional-feedback.
+   Thus the executed recurrence-tail product is narrower than the plan above.
+   Its 1,202 source inputs and 21,636 target comparisons use that 0..2 domain,
+   consistently with the generator, main paper, and retained summary.
 5. Fixed-skeleton scheduling: distances {1,2,3,5}, tail latencies {1,3,7,15,31},
    actual releases {0,3,8}, capacities {1,2,4}. Both constructors receive exactly
    the same source/costs; attempted interval domain is 1..256. Compare retirement-
