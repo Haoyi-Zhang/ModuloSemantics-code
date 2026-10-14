@@ -174,7 +174,8 @@ unchanged. The single-period public functions still validate fresh input.
 separate exhaustive annotation/export-time definition, first-fault observations,
 nonmonotone resource admission, inactive uses, caller mutation and the 256 cap.
 They run in the existing reproduction `tests` step through ordinary discovery:
-`python -B -m unittest discover -s tests -v` (55 current methods). No timing gain
+`python -B -m unittest discover -s tests -v` (56 currently defined methods, including
+one additional 3,072-case two-atom selector regression). No timing gain
 is claimed; the frozen measurements and completed native receipts below concern
 the original sources before this call-local preparation change.
 

@@ -56,6 +56,7 @@ jobs:
             # additionally receives the existing 3.5 GiB / 40-44 CPU-s limits.
             ulimit -v 4194304
             ulimit -t 600
+            timeout --signal=TERM --kill-after=5s 60s python -B -m unittest discover -s tests -p test_two_atom_selection.py -v
             timeout --signal=TERM --kill-after=10s 900s python -B reproduce.py
             python -B - <<'PY'
           import json
