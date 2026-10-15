@@ -1,43 +1,57 @@
 # Conditional certificates for periodic loops with deferred faults
 
-This repository contains a restricted loop language, a structural certificate
-checker, separately implemented sequential and event-driven interpreters, exact
-finite oracles, deterministic generated inputs, and handwritten mathematical
-proofs. It is a self-contained research artifact, not a production compiler or a
-proof-assistant development. The current manuscript develops certified early exports, information-uniform
-selector synthesis, a canonical Ret/Forward annotation minimizing separate
-forwarding banks, and a complete-by-retirement period cutoff. These are restricted
-model-level results, not external peer review or a guarantee of publication.
-Recent neighboring verification systems and remaining full-text access limits
-are recorded in `literature/reference-audit.json`.
+A self-contained research artifact for a restricted loop language with deferred
+faults: structural certificate checking, sequential and event-driven
+interpreters, finite oracles, certified exports, fixed-skeleton annotation
+optimization, and handwritten proofs. It is not a production compiler or a
+proof-assistant development.
 
-## Reproduce the recorded evidence
+## Setup and quick checks
 
-Use a POSIX system with Python 3.10 or later, the standard library, and at least
-4 GiB memory available to the process group. No package installation, network,
-GPU, model, external API, private data, or sibling paper directory is required.
-Run from the extracted repository root:
+Python 3.10 or later and the standard library are sufficient. No installation,
+network, external solver, private data, GPU, or sibling paper directory is needed.
+Run these portable checks from this repository's root:
+
+```sh
+python -B -m unittest discover -s tests -v
+python -B -m semantic_certificates cases/guarded-division.json
+python -B verify_frontiers.py
+python -B verify_replay.py
+```
+
+The unit suite currently contains 56 methods. The `verify_*.py` commands
+reconcile retained results; they do not rerun the experiments. Reconciliation
+refreshes the corresponding summary JSON files, so use a separate extraction
+when preserving the supplied measurements.
+
+## Full reproduction
+
+The bounded driver requires a POSIX system with Python's `resource` module and
+at least 4 GiB available to the process group:
 
 ```sh
 python reproduce.py
 ```
 
-The driver runs one child at a time, pins each experiment to one available CPU,
-sets a 3.5 GiB address-space ceiling, and sets a 40-second soft / 44-second hard
-CPU limit per child. A child exceeding its independent wall-time limit is
-terminated and the reproduction stops. The existing result files are refreshed
-only by the corresponding completed chunks. A slow machine may hit these
-limits; that is a failed reproduction, not permission to lower coverage or
-claim a pass. Linux records peak resident memory in KiB; other systems may use
-a different unit for `ru_maxrss`, so the supplied resource interpretation is
-Linux-specific. The driver's requested affinity and address-space limit do not
-configure system swap; the original environment had no swap. A new run must
-either use a no-swap host or enforce zero swap for its own process cgroup.
+To reconcile the original stored counts without rerunning that campaign, use
+`python -B verify_results.py` on POSIX as well; its summary dependency imports
+the POSIX `resource` module. The frontier/replay reconcilers above are portable.
 
-For bounded batches in a tool environment, keep the extracted code unchanged
-and run the following serial commands. The first starts fresh; the others
-resume the recorded completed prefix. `--resume` does not certify that files
-have remained unchanged; re-extract and restart after any code modification.
+It runs all 44 steps serially, pins each child to one available CPU, applies a
+3.5 GiB address-space ceiling and 40-second soft / 44-second hard CPU limits,
+and stops on a nonzero exit or an 80-second child wall timeout. A slow machine
+may hit these limits; do not lower coverage and call that a full reproduction.
+The driver refreshes results, logs, and generated cases in place. Use a fresh
+extraction for a new run.
+
+The recorded memory interpretation is Linux-specific (`ru_maxrss` in KiB).
+Affinity and address-space limits do not disable swap: use a no-swap host or a
+process cgroup with zero swap allowance. The scientific-checks workflow provides
+a pinned Python 3.12.14 container, one CPU, 4 GiB memory, zero process swap, and
+checks the effective cgroup limits before running.
+
+For bounded batches, the first command starts fresh and subsequent commands
+resume its completed prefix:
 
 ```sh
 python reproduce.py --max-steps 1
@@ -45,378 +59,88 @@ python reproduce.py --resume --max-steps 1
 # Repeat the resume command until all 44 steps are recorded.
 ```
 
-For isolated diagnostic chunks (these do not accumulate a full-run pass):
+Resume only on unchanged extracted files; `--resume` does not verify source
+identity. After any code modification, re-extract and start again. For a single
+diagnostic stage, use `python reproduce.py --step tests` (or another stage named
+in `reproduce.py:STEPS`). A diagnostic stage is not a complete campaign.
 
-```sh
-python reproduce.py --step tests
-python reproduce.py --step guarded-division
-python reproduce.py --step generated
-python reproduce.py --step dominance
-python reproduce.py --step reconcile
-```
+`results/reproduction.json` lists requested/completed steps, exits, timeouts and
+resource measurements. A complete successful sequence is required for
+`all_steps_passed`. Scientific reconciliation compares counts and invariants,
+not timing equality or machine fingerprints. No third-party system is rerun.
 
-The final reconciliation compares a scientific expected result object, not a
-checksum or machine fingerprint. It checks all retained counts and invariants.
-Timing fields are measured afresh and are intentionally not expected to match.
-`results/reproduction.json` records exactly which driver steps completed; only
-a successful complete step sequence, uninterrupted or resumed on unchanged
-files, constitutes clean reproduction. The full command
-does not download or rerun third-party systems.
+## Certificate and execution inputs
 
-To check a certificate, without executing either program:
+`cases/` contains executable JSON examples, including generated sources,
+admitted certificates, rejected construction candidates, and counterexamples.
+The fixed generated seed is 72913; all 96 generated schemas have 24 retained
+inputs with trip counts 0–12 and integer inputs from -3 through 3.
 
-```sh
-python -m semantic_certificates cases/guarded-division.json
-```
+A certificate declares source nodes, actual/predicted Boolean atoms, input and
+guard releases, costs/resources, initiation interval, attempts, and retirement.
+Optional exports carry checked same-source value-or-fault tickets.
+`proofs/semantics.md` and `proofs/frontiers.md` define the model;
+`semantic_certificates/checker.py` implements admission and representation caps.
+The CLI rejects duplicate JSON keys and files above 4 MiB. Availability maps
+must have exactly the declared keys and strict integer releases (Booleans are
+not integers for this purpose).
 
-The JSON output contains acceptance, diagnostics with falsifying local Boolean
-valuations, computed goodness masks, and phase/stage resource witnesses.
-Exit status is 0 for acceptance and 2 for rejection or a handled input error.
-The command-line reader rejects duplicate JSON keys and files above 4 MiB.
-`guard_ready` and `input_ready` must be JSON objects whose keys exactly match
-the declared atoms and inputs. Every release is a JSON integer from 0 through
-4096; JSON Booleans are not integers for this purpose. Arrays, strings, `null`,
-a missing or extra key, and a non-integer release are returned as
-`accepted: false` with a `format` diagnostic rather than reaching mapping
-operations or producing a traceback.
-An optional `--input path.json` compares the two executions after admission;
-this option assumes the well-formed finite input format described below. It is
-not an adversarial execution sandbox. The bounded reproduction driver should
-be used for the experimental campaign.
+To compare executions of an admitted certificate, add `--input path.json`.
+Execution input is an object with nonnegative integer `n`, length-`n` Boolean
+lists under `guards`, length-`n` value lists under `inputs`, and
+`initial[node][negative_index_as_string]` for reached negative source indices.
+Inputs are values, never fault tokens. JSON arrays become functional tuples.
+The execution API assumes these well-formed finite inputs; it is not a hostile
+file sandbox. The certificate CLI exits 0 for acceptance/equal executions and
+2 for rejection or a handled input error.
 
-## What the results establish
+## Export synthesis and optimum replay
 
-The mathematical proof in `proofs/semantics.md` establishes a sufficient
-conditional-ticket criterion for preservation of traces, the first defined
-fault, and last-value state in the declared abstract semantics. It proves an
-exact resource bound for the independent-iteration **activation envelope**,
-which can exceed occupancy of runs truncated by a fault. A third handwritten
-proof explains a null result: the supplied full-recovery constructor cannot
-improve the least admitted initiation interval over its Wait counterpart on a
-common period domain. This is a limitation of that constructor, not of all
-speculative scheduling.
+`semantic_certificates.frontiers` exposes `selection_at`,
+`earliest_selection`, `obstruction_at`/`verify_obstruction`, `hybrid_at`,
+and `hybrid_design_space`. The design-space search reports truncation when
+retirement exceeds the maximum representable period, 256.
+`proofs/frontiers.md` gives the premises and finite cutoff;
+`proofs/frontier-protocol.md` records domains, denominators and failure rules.
 
-Finite checks are not general mechanized proofs. The sequential interpreter
-imports neither the checker nor the target interpreter; the target interpreter
-does not call the checker. The reservation oracle explicitly unrolls clocks
-rather than using the checker's phase/stage quotient. These code separations
-reduce some shared implementation risks but retain shared mathematical
-conventions and development history.
-
-The recorded main matrix has 132,608 accepted-candidate comparisons from eight
-exhaustive schemas and 2,592 comparisons from admitted schedules of 96 generated
-schemas: 135,200 comparisons, with no difference in the defined observations.
-The generated denominator is all 96 schemas, not just successful constructions.
-Recover admits 46, Wait admits 62. Among the 46 pairs, Recover has a larger
-initiation interval in 43 and ties in 3; its retirement offset ties in all 46.
-These are declared abstract schedule costs, not elapsed program performance.
-
-A separate 216-certificate grammar is checked against all 108 one-iteration
-inputs per certificate (23,328 comparisons). It admits 4 certificates and
-rejects 212, without a classification discrepancy in that finite domain.
-Rejected certificates intentionally have counterexamples; these comparisons
-are not included in the 135,200 no-mismatch total. The resource-component
-matrix contains 1,728 instances, 2,376 phase/resource cells and 90,720 Boolean
-stream assignments. It is not a corpus of 1,728 fully admitted programs.
-
-Seven certificate mutations are rejected and have retained witnesses. Two
-execution-contract controls expose eager fault observation and reversed
-retirement order. An algebraic identity gives a semantically correct rejected
-schedule; the checker is not generally complete or necessary. The 6,144-pair
-constructor test is a post-result falsification of the explanatory dominance
-lemma, not a retroactively preregistered speedup experiment.
-
-
-## Certified exports and canonical annotation
-
-`proofs/frontiers.md` specifies the extension and its proofs. The following
-example runs locally from the repository root. It saves an admitted canonical
-certificate; it is not an external compiler integration.
-
-```python
-import json
-from semantic_certificates.builders import instruction, make_program, build, inp, node
-from semantic_certificates.checker import check
-from semantic_certificates.frontiers import hybrid_at, hybrid_design_space
-
-source = make_program([
-    instruction("s", "add", [node("s", 1), inp("x")], True, emit=True),
-    instruction("t", "div", [inp("z"), inp("y")], True, emit=True),
-], release=0, div_latency=12, capacity=4)
-skeleton = build(source, "wait")
-certificate, plan = hybrid_at(skeleton, 1)
-assert check(certificate).accepted
-with open("certified-export.json", "w") as f:
-    json.dump(certificate, f, indent=2)
-space = hybrid_design_space(skeleton, cell_budget=1)
-print(space["minimum_budget_feasible_ii"], space["pareto"])
-```
-
-The selector interface `selection_at` computes a common good completed ticket
-for every assignment of released atoms. `earliest_selection` searches release
-and completion times. `obstruction_at`/`verify_obstruction` produce and replay
-an information-cell refutation. Both public entry points explicitly validate
-release/candidate objects, exact keys and strict integer ranges. An invalid
-model or witness returns false from the replay function; unexpected implementation
-exceptions are not hidden by a catch-all handler.
-`hybrid_at` forwards exactly the satisfiable carried uses with deadline below
-retirement, exports at the latest mandatory deadline, and checks the resulting
-certificate. `hybrid_design_space` enumerates the proved finite period domain,
-reports its Pareto set, and flags truncation when retirement exceeds the
-representation's maximum period 256.
-
-Each design-space call now prepares fixed-skeleton checker goodness, candidate
-completion groups and attempt activity once, using call-local immutable groups.
-This does not cache period admission: each annotated target still receives the
-full checker, with resource reservations, selector deadlines and tie ordering
-unchanged. The single-period public functions still validate fresh input.
-`tests/test_frontier_preparation.py` adds three finite regressions, including a
-separate exhaustive annotation/export-time definition, first-fault observations,
-nonmonotone resource admission, inactive uses, caller mutation and the 256 cap.
-They run in the existing reproduction `tests` step through ordinary discovery:
-`python -B -m unittest discover -s tests -v` (56 currently defined methods, including
-one additional 3,072-case two-atom selector regression). No timing gain
-is claimed; the frozen measurements and completed native receipts below concern
-the original sources before this call-local preparation change.
-
-`frontier_oracle.py` contains separately expressed whole-decision-table,
-tagged-lifetime, complete-annotation and direct-clock checks. It imports neither
-the production checker/target/frontier module nor their model classes. The
-implementation separations are described above. The original two interpreter paths
-and the new direct-clock path are not three unrelated real compiler back ends.
-
-The 44-step reproduction reruns the original campaign, export/annotation checks
-and optimum-proof replay. The retained POSIX campaign used 51 test methods:
-the original unchanged 21, 21 frontier methods and nine replay/format methods.
-The pre-preparation suite has 52 methods, adding a regression for opaque attempt names
-longer than 64 characters. Such names arise from builder prefixes even with a
-64-character source label; they must not invalidate an otherwise admitted
-skeleton, its selector, or its optimum proof. That 52-method suite and the finite
-experiment functions were rerun locally on Windows. Those checks do not rerun
-the POSIX resource-limit wrapper or replace the retained Linux measurements.
-New evidence includes 17,408 fixed-time selector queries, 4,096 earliest-time
-queries, 1,820 labelled storage cases, and 32 complete small annotation queries
-with 512 assignments and 13,346 export-time vectors. Four concrete feedback
-families compare six policies across three execution paths (195,408 comparisons).
-Together with inherited-source forwarding, boundary runs and annotation
-executions, new target comparisons total 212,592. Finite agreement is not the
-proof of the general theorem. See raw results and `proofs/frontier-protocol.md`
-for every denominator, input domain, failure rule and development limitation.
-
-No GPU, model API, external solver or third-party compiler is invoked. No
-industrial workload is called a holdout, and no physical speedup is inferred.
-The old full-replay negative theorem remains valid for its retirement-only
-premises. The new startup resource witness strengthens universal admission
-under complete-by-retirement; it does not identify a chosen fault-truncated
-run's peak or its minimum actual storage with the unconditional envelope.
-
-## Certificate model and input format
-
-A certificate is a JSON object with these required top-level fields and optional `exports`:
-`actual`, `predicted`, `guard_ready`, `inputs`, `input_ready`, `nodes`, `costs`,
-`resources`, `ii`, `retire`, `attempts`, `retirement`. The fully enumerated
-examples under `cases/` are the executable schema examples. Unknown fields are
-rejected rather than silently interpreted as a trusted assertion.
-
-Actual and predicted atoms are disjoint named Boolean streams. A predicate is
-a JSON Boolean, a declared atom name, `['not', e]`, `['and', e1, ...]`, or
-`['or', e1, ...]` (using JSON double quotes in a file). Source guards mention
-actual atoms only. Input and guard release times are offsets relative to the
-logical iteration's nominal start. Predicate readiness is required even when a
-predicate evaluates to false; mux choices require readiness whenever that mux
-is active, and retirement choices whenever retirement is reached.
-
-A source node has `name`, `guard`, `op`, `args`, `fallback`, and Boolean `emit`.
-A reference is `{"input":"x"}`, `{"constant":1}`, or
-`{"node":"v","distance":d}`. Distance zero requires a preceding source
-node. Positive distances name earlier iterations; negative resulting indices
-are read from the supplied initial map. Supported primitive behavior is integer
-identity/add/subtract/multiply/truncating division and functional tuple
-load/store. Ill-typed operations, bounds errors and division by zero yield
-defined fault tokens. Source evaluation is lazy in the guard and stops at its
-first fault. A false guard still defines the node through its fallback.
-
-An attempt has `name`, source `node`, `kind`, `when`, and `offset`. The kinds
-`op` and `copy` have `args`. A `mux` has `choices`, each containing `when` and
-`attempt`. Local attempt references use `{"attempt":"a"}` and must point
-backwards in the list. Cross-iteration references use
-`{"retired":"v","distance":d}` with d at least one. They cannot name arbitrary unretired speculative state. An explicit
-`{"forward":"v","distance":d}` instead reads a separately checked private
-export of the same source value-or-fault ticket. `exports[v]` contains exactly
-`offset` (0..retire) and a total disjoint `choices` partition. Its selected
-same-source tickets must be good and complete, and the selector may mention
-only atoms released by that offset. Retirement maps each source node to a total,
-disjoint list of choices of its own identity. Attempts emit no source events;
-only retirement does. All values, including faults, are private until chosen.
-
-Each cost record has positive `latency`, a named `resource`, and distinct
-integer `reserve` positions from zero through latency minus one. These are
-user-declared abstract costs, not measured processor properties. Resource
-capacities are positive integers. An attempt at offset s in iteration i issues
-at i*ii+s. Its selected operands must be available then. The iteration retires
-at i*ii+retire. At equal clock times, completions precede exports, exports precede retirement, and retirement
-precedes issues. This tie rule is part of the proof, not an incidental sorting
-choice.
-
-A well-formed execution input has nonnegative integer `n`; Boolean lists of
-length n for all declared atoms under `guards`; value lists of length n for all
-`inputs`; and `initial[node][negative_index_as_string]` for every reached
-negative source index. All inputs are ordinary values, never fault tokens.
-The supplied experiments use integers and flat integer memory arrays; JSON
-arrays are converted into functional tuples by the interpreters. Integer
-arithmetic is unbounded in the mathematical semantics. Python allocation
-failure and native machine arithmetic are not covered by the theorem.
-
-Implementation caps are at most 10 local Boolean atoms, 64 source nodes,
-512 attempts, initiation interval 1--256, offsets and releases 0--4096,
-dependence distances 0--64 (retired target references 1--64), latency 1--128,
-and capacity 1--256. Formula depth and arity are bounded in `logic.py`. These
-are admission/representation limits, not experimentally established limits on
-all possible modulo schedules.
-
-## Repository map and evidence selection
-
-`semantic_certificates/checker.py` implements structural checks and computed
-goodness. `reference.py` and `target.py` implement the distinct executions.
-`resource_oracle.py` is the finite unrolling oracle. `builders.py` contains two
-untrusted fixed-offset constructions; they search only the interval dimension.
-A construction failure is retained with the last candidate, the searched
-interval bound and diagnostics. It is not a proof of global infeasibility.
-
-`experiments.py` specifies all exhaustive domains and generated inclusion rules.
-`certificate_oracle.py` defines the complete 216-certificate grammar.
-`dominance.py` performs the exploratory 96-by-64 implication test.
-`summarize.py` reconciles all tables into `results/summary.json`.
-`tests/test_semantics.py` remains byte-for-byte unchanged and contains the
-original 18 focused checks, including two retained implementation regressions.
-`tests/test_format_validation.py` adds three API/CLI methods for the F1 format
-boundary: same-name arrays, strings, `null`, exact availability keys, strict
-integer releases, and the normal object case. Those unchanged 18 semantic and
-three format methods are included in the pre-preparation 52-method suite. The retained
-`results/unit-tests.txt` records the earlier 51-method POSIX run; a fresh full
-reproduction regenerates it with the current suite. The earlier direct format probes remain in
-`results/f1-format-validation.json` and are not relabelled as a regenerated task.
-The current 44-step driver reruns the inherited scientific campaign and both
-extensions. In contrast, running `verify_results.py` alone only reconciles stored
-counts and cases; it does not rerun the campaign. These regressions preserve
-actual witnesses, not a claim that the Python implementation is generally proved.
-
-The scientific-checks workflow runs from this standalone artifact repository's
-root in a pinned Python 3.12.14 Debian container on an Ubuntu 24.04 runner,
-for pushes to `main` or manual dispatch. The container allows one CPU and
-4 GiB memory, with zero swap; the workflow checks the effective cgroup limits
-before starting. It runs the full
-44-step POSIX schedule, including the current unit suite and all three
-reconciliation gates, under a 900-second whole-run wall limit and the driver's
-per-child limits. Logs, results and generated cases are uploaded even on failure.
-It does not alter host swap. Container correctness runs are separate from the
-original host-specific timing measurements. A workflow definition alone does
-not establish that its campaign has completed.
-
-The subsequent successful native run `37477159823` at head
-`507b2a6f8e343282c7209fca8daf188aa6d5f3d8`, artifact `11418984752`, completed
-all 44 stages with zero exits and no timeout, and passed all 52 unit methods.
-Its log records Python 3.12.14, one CPU, 4 GiB memory and zero process swap
-allowance. `results/current-replay/` retains exactly 1,524 ordinary-data/log
-files, copied as unchanged archive-member bytes with the native `cases/`,
-`results/` and `scientific-output/` hierarchy. All 1,409 frozen cases agree
-byte-for-byte with the candidate; certificates and all non-timing result fields
-agree with historical and prior private evidence, including 135,200 original
-and 212,592 extended execution comparisons without disagreement. This is finite
-implementation corroboration, not general hand-proof verification or a new
-performance benchmark. The separate Windows identifier campaign is not an
-additional native stage.
-
-Four carried historical files (`campaign_accounting.json`,
-`f1-format-validation.json`, `pilot_intake.json`, `resource_intake.json`) are
-not relabelled as native results and are not copied into `current-replay`.
-Their originals, earlier failed-run logs, 51-method POSIX history, original
-228.01 CPU seconds, 103.67 MiB peak RSS and scaling samples remain intact.
-Native telemetry is retained separately and does not replace those measurements.
-No archive member or scientific code was executed during data verification or
-retention. The original `results/` remains the source for historical paper tables.
-
-`cases/generated/` contains all generated source schemas, admitted certificates,
-construction-failure candidates and exact sampled execution inputs. The fixed
-seed is 72913; each schema has 24 cases with trip counts 0--12 and integer
-inputs from -3 through 3. Exhaustive families are regenerated by nested products
-of explicit literal domains, including all Boolean streams at the stated bounds;
-no external dataset or omitted cache is required. Their exact dimensions are
-also stored in their result JSONs. `cases/certificate-oracle/` preserves the
-finite certificate grammar members and semantic classification witnesses.
-`cases/counterexamples/` preserves mutations, incompleteness and bug witnesses.
-
-The resource matrix and generated comparison have CSV rows alongside aggregate
-JSON. `claim_evidence_ledger.csv` states the maturity and scope of each material
-claim. `external_resources.csv` distinguishes read scholarly passages, indexed
-metadata, blocked full-text access, and supplied template assets. No baseline
-internals or third-party research code have been modified or integrated.
-
-
-## Replaying a budget-optimum claim
-
-`proofs/optimization-replay.md` specifies the evidence format and proof. The
-producer `optimization_witness.certify_budget` creates consecutive exclusion
-rows and a checked winning certificate. The consumer
-`optimization_replay.verify_optimum` takes the fixed skeleton and budget as
-external inputs. It does not call selector search, annotation optimization or
-the production bank layout. It still trusts the semantic checker, Boolean table
-calculation, obstruction replay and the stated handwritten normal-form theorem.
-
-From the repository root, this example regenerates and replays a stored case:
-
-```sh
-python - <<'PYCODE'
-import json
-from pathlib import Path
-from semantic_certificates.optimization_witness import certify_budget
-from semantic_certificates.optimization_replay import verify_optimum
-case = json.loads(Path('cases/replay/matrix-recover-2-3-9-4-1.json').read_text())
-proof = certify_budget(case['skeleton'], 1)
-result = verify_optimum(case['skeleton'], 1, proof)
-assert result['accepted'] and result['minimum_period'] == 4
-print(json.dumps(result, indent=2))
-PYCODE
-```
-
-For separate JSON files, the CLI is:
+`optimization_witness.certify_budget` produces an optimum witness.
+`optimization_replay.verify_optimum` checks it against an externally supplied
+fixed skeleton and budget. For separate JSON objects:
 
 ```sh
 python -m semantic_certificates.optimization_replay skeleton.json proof.json --budget 1
 ```
 
-The first file is the fixed skeleton object, not a whole case container; the
-second is its `proof` object. The API returns structured acceptance or rejection.
-The CLI emits JSON and exits 0 on acceptance, 2 on input/evidence rejection.
-This offline research API is not a general hostile-file execution sandbox.
+Supply the skeleton object and the proof object, not a whole case container.
+Examples containing both are under `cases/replay/`; the evidence format and
+trusted dependencies are specified in `proofs/optimization-replay.md`.
 
-The full campaign runs three additional tasks and their reconciliation:
+## Results, proofs and provenance
 
-```sh
-python run_bounded.py -m semantic_certificates.replay_experiments three-tickets
-python run_bounded.py -m semantic_certificates.replay_experiments small-oracle
-python run_bounded.py -m semantic_certificates.replay_experiments structured
-python run_bounded.py verify_replay.py
-```
+The original campaign records 135,200 accepted-candidate execution comparisons;
+the export extension records 212,592 comparisons, without disagreement in
+their declared finite domains. These are abstract schedule/observation checks,
+not physical speedups or a general mechanized proof. The full-recovery
+constructor's negative result remains in the proofs and results.
 
-Executed finite domains: 32,768 three-ticket queries, 28,279 replayed obstructions
-and damaged-witness rejections; 28 independent-oracle budget queries; 144
-structured queries (126 positive and 18 negative optima) and 540 rejected proof
-mutants. The 512 annotations / 13,346 export-time tuples in the small oracle
-reuse the earlier exact domain; they are not a new workload or additional
-source/target comparison count. The structured grid compares the producer,
-consumer and normal-form optimizer, not an independently authored system.
-A negative proof truncated at 256 when C exceeds 256 explicitly reports bounded
-scope. Positive proofs can still establish a global minimum below that cap.
+`results/` retains JSON/CSV measurements, witnesses and raw logs.
+`results/current-replay/` separately retains the native 44-stage campaign with
+its 52-method suite; current quick checks include later regressions. Historical
+timings and paper-table inputs remain in the original `results/`.
+`audit/` retains earlier raw clean-reproduction comparisons and diagnostic
+witnesses. `claim_evidence_ledger.csv` links claims to their evidence and scope.
 
-## Limits, provenance and licensing
+The sequential interpreter does not import the checker or target interpreter;
+the direct-clock/resource oracles use separately expressed computations.
+These are implementation separations, not independent authorship or external
+review. Handwritten proofs retain their stated abstract semantics, including
+unbounded mathematical integers; native arithmetic and allocation failures are
+outside that model. Construction failure is not global infeasibility.
 
-Original implementation, generated cases, results and exposition carry the MIT
-notice in `LICENSE`. Upstream publisher and author rights remain with their
-owners. No external research-paper PDF is redistributed; bibliographic source
-identifiers and access limitations are retained instead. The repository does
-not require the publisher template. The project paper separately retains the
-supplied ACM class/style and their unmodified LPPL notice.
+`external_resources.csv`, `literature/`, and `proofs/literature.md` preserve
+source identities and reading/access boundaries. No third-party paper PDFs are
+redistributed. Original code, cases, results and exposition are MIT-licensed;
+see `LICENSE` and `licenses/README.md`. Publisher rights remain upstream.
 
 Substantive AI assistance was used for formulation, literature screening,
 proof drafting, code generation and revision, experiment orchestration,

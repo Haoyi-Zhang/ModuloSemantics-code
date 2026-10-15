@@ -12,7 +12,6 @@ not cover their partial executions. The clean campaign ran continuously.
 
 `obstruction-format-before.txt` is an actual isolated pre-repair probe of the
 selection-problem header. The new unit tests check explicit format rejection and
-that an unexpected RuntimeError still propagates. `reference-consistency.json`
-checks 38 distinct used keys and reading-scope records; it is not a network or
-whole-paper audit. `pdf-inspection.json` records the final 50-page inspection.
+that an unexpected RuntimeError still propagates. These are historical raw
+checks, not a description of the current manuscript or current unit-test count.
 The main experiment records and logs are under ../results/.
