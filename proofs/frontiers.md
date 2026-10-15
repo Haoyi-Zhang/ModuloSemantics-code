@@ -1,6 +1,6 @@
 # Causal certification and private forwarding
 
-These are handwritten, AI-assisted mathematical arguments for the abstract
+These are mathematical arguments for the abstract
 language. They are not a proof-assistant development. The implementation and
 separately expressed finite oracles were co-developed. Finite tests are listed
 separately and are not premises of the general theorems below.

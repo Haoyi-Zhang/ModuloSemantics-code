@@ -55,7 +55,7 @@ No model is trained. Seeds separate reproducible input streams, not human studie
 Zero finite discrepancies supports implementation consistency only. General
 preservation, information-uniform selector completeness, interval inequalities
 and labelled-bank sizes require separate handwritten proofs. The interpreters and
-oracles are separately expressed but co-developed with substantive AI assistance.
+oracles are separately expressed but co-developed.
 No independent human or proof-assistant verification is claimed. An oracle
 mismatch stops the step and writes the full case before any summary is produced.
 All successes/failures are reported, not only improved intervals. No target

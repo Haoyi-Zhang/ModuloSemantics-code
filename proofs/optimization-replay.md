@@ -23,8 +23,8 @@ selector search, annotation search, or the production bank-layout routine.
 The verifier trusts the implementation of the semantic checker, TruthTable,
 validation-only problem parsing, obstruction replay, ordinary integer arithmetic,
 and the handwritten results H, B and C. Separate functions are not independent
-provenance or machine-checked assurance. Both producer and consumer were developed
-with substantive AI assistance. No whole-program resource or timing speedup is
+provenance or machine-checked assurance. Both producer and consumer were co-developed.
+No whole-program resource or timing speedup is
 inferred from replay acceptance.
 
 ## Theorem P: sound budget optimum replay

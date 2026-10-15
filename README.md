@@ -142,7 +142,5 @@ source identities and reading/access boundaries. No third-party paper PDFs are
 redistributed. Original code, cases, results and exposition are MIT-licensed;
 see `LICENSE` and `licenses/README.md`. Publisher rights remain upstream.
 
-Substantive AI assistance was used for formulation, literature screening,
-proof drafting, code generation and revision, experiment orchestration,
-analysis, validation and manuscript writing. The experiments execute the
+The experiments execute the
 included deterministic Python programs; they do not execute a language model.
